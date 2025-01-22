@@ -5,8 +5,12 @@
 @layer base {
   :root {
     --color-bg-primary: 34 38 42;
-    --color-bg-secondary: 27 30, 34;
+    --color-bg-secondary: 27 30 34;
     --color-text-primary: 255 255 255;
     --color-primary: 230 0 69;
   }
+}
+
+h2 {
+  @apply text-3xl font-bold text-textPrimary uppercase flex;
 }

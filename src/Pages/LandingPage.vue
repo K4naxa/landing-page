@@ -1,17 +1,22 @@
-<script setup></script>
-
+<script setup>
+import EducationTimeline from "../sections/EducationTimeline.vue";
+import About from "../sections/About.vue";
+import Layout from "../layouts/layout.vue";
+import Portfolio from "../sections/portfolio.vue";
+</script>
 <template>
-  <div class="bg-bgPrimary h-screen text-textPrimary">
-    <div class="w-full">
-      <header class="w-full mx-auto flex justify-between items-center p-4">
-        <div>Landing Page</div>
-        <menu class="flex gap-8">
-          <a href="#">What I Do</a>
-          <a href="#">Projects</a>
-          <a href="#">Skills</a>
-        </menu>
-        <button>Hire Me</button>
-      </header>
-    </div>
+  <div>
+    <Layout />
+
+    <About />
+
+    <div class="h-1 w-3/4 bg-bgSecondary rounded-full mx-auto" />
+
+    <EducationTimeline />
+
+    <div class="h-1 w-3/4 bg-bgSecondary rounded-full mx-auto" />
+
+    <Portfolio />
   </div>
 </template>
+>

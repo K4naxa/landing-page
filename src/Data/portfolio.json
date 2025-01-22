@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "id": "self_taught_c++",
+      "created": ["2022/01"],
+      "image": "",
+      "title": "Self-taught studies in C++",
+      "description": "Studying C++ programming language to deepen my understanding of programming and software development. Specializing in object-oriented programming and data structures. Developed DLL injection software and reverse engineering skills. Became facinated by the low-level programming and the inner workings of the computer."
+    },
+
+    {
+      "id": "self_taught_webdev",
+      "created": ["2023/12"],
+      "image": "",
+      "title": "Self-taught studies for Front-End Development",
+      "description": "Got interested in web development and started learning HTML, CSS, and JavaScript. Used online resources and tutorials to learn the basics of front-end development. Developed a passion for creating interactive and user-friendly websites. Completed The Odin Project curriculums and built several projects to practice my skills."
+    },
+
+    {
+      "id": "tredu",
+      "created": ["2025/12"],
+      "image": "",
+      "title": "Tieto- ja viestintätekniikan perustutkinto",
+      "description": "Started Studying at Tredu to get a degree in Information and Communication Technology. Studied programming, databases, and networking. Most of my time has been spent on doing multiple projects for the school and other clients of the scool. I have also been working on my own projects to deepen my understanding of programming and software development."
+    }
+  ]
+}
