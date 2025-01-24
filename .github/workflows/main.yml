@@ -16,7 +16,7 @@ jobs:
     - name: Secret Scanning
       uses: trufflesecurity/trufflehog@main
       with:
-        extra_args: --reslts=verified,unknown
+        extra_args: --results=verified,unknown
 
     - name: Install nodejs for npm
       uses: actions/setup-node@v4
