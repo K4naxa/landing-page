@@ -8,11 +8,7 @@
     <div
       class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 border-solid border-[12px] border-secondary-600 drop-shadow-xl sm:order-1 lg:order-2"
     >
-      <img
-        class="object-cover object-center rounded"
-        alt="hero"
-        src="./asset/hero-image.jpg"
-      />
+      <img class="object-cover object-center rounded" alt="hero" src="" />
     </div>
     <div
       class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:pt-10 pt-8 items-center text-center"
