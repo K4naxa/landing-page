@@ -13,10 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Secret Scanning
+    - name: Run TruffleHog
       uses: trufflesecurity/trufflehog@main
       with:
-        extra_args: --results=verified,unknown
+        scan: true
+        directory: .
+        results: ./trufflehog-results.json # Correct flag
 
     - name: Install nodejs for npm
       uses: actions/setup-node@v4
