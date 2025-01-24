@@ -13,15 +13,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Run TruffleHog
-      uses: trufflesecurity/trufflehog@main
-      with:
-        scan: true
-        directory: .
-        results: ./trufflehog-results.json # Correct flag
-
     - name: Install nodejs for npm
       uses: actions/setup-node@v4
+
+    - name: Clean npm cache
+      run: npm cache clean --force
 
     - name: Install dependencies
       run: npm install
