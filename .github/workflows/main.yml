@@ -19,14 +19,8 @@ jobs:
           node-version: "23.6.0"
           cache: "npm"
 
-      - name: Clean npm cache
-        run: npm cache clean --force
-
       - name: Install dependencies
         run: npm install
-
-      - name: Build
-        run: npm run build
 
       - name: Build Docker image
         uses: docker/build-push-action@v6
