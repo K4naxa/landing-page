@@ -7,8 +7,8 @@
       "title": "Urheilupäiväkirja",
       "description": "A web application for tracking your workouts and workout activity for the students. The application allows the users to log in and track their workouts and see their school course progression. Teachers can monitor the students' progress, activity, training intensity and lenghts. ",
       "stack": ["React", "Node.js", "Express", "mySQL"],
-      "github": "https://github.com/tredu/urheilupaivakirja-2-0-urheilupaivakirja2024",
-      "documentation": "https://github.com/tredu/urheilupaivakirja-2-0-dokumentaatio-urheilupaivakirja2024",
+      "github": "https://github.com/K4naxa/Urheilupaivakirja",
+      "documentation": "https://github.com/K4naxa/urheilupaivakirja-dokumentaatio",
       "demo": ""
     }
   ]

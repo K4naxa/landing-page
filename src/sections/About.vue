@@ -22,11 +22,9 @@
         Fullstack Web Developer
       </h3>
       <p class="mb-2 leading-relaxed text-slate-200">
-        I am a self-taught developer, turned student at Tredu with background in
-        customer service and sales. I'm enthusiastic and passionate new
-        developer with a strong desire to learn and grow. Always eager to
-        challenge my self with new coding and tinkering projects that push the
-        limits of my knowhow.
+        Motivated and passionate Full-Stack Developer with a strong enthusiasm
+        for coding and problem-solving. I excel in tacklig challenges, learning
+        new skills, and pushing my abilities with exciting projects
       </p>
 
       <p class="mb-8 leading-relaxed text-slate-200">
