@@ -17,7 +17,7 @@ import NavLink from "../components/NavLink.vue";
 
     <a
       href="#contact"
-      class="w-full md:w-auto px-4 py-2 text-right bg-primaryColor hover:scale-105 hover:bg-red-800 active:scale-95 duration-75 transition-all hover:text-primary-500 text-white md:rounded"
+      class="w-full md:w-auto px-4 py-2 text-right bg-primaryColor hover:text-bgPrimary active:scale-95 duration-75 transition-all hover:text-primary-500 text-white md:rounded"
     >
       Contact
     </a>
