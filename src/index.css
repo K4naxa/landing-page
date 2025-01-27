@@ -17,7 +17,7 @@
 }
 
 html {
-  @apply scrollbar-thin;
+  @apply scrollbar-thin scroll-smooth;
 }
 h2 {
   @apply text-3xl font-bold text-textPrimary uppercase flex flex-wrap;
