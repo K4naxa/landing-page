@@ -29,7 +29,10 @@ const _formatItemDate = (item) => {
 };
 </script>
 <template>
-  <section id="education" class="py-8 mx-auto text-textPrimary">
+  <section
+    id="education"
+    class="py-8 mx-auto text-textPrimary scroll-m-16 lg:scroll-m-0"
+  >
     <div>
       <h2>
         <p class="mr-2 text-primaryColor">Educational</p>

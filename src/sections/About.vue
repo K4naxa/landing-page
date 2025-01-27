@@ -3,7 +3,7 @@
   <!-- Hero Section Start -->
   <section
     id="about"
-    class="container mx-auto flex md:flex-row flex-col items-center pt-8 lg:pt-0 mb-8"
+    class="container mx-auto flex md:flex-row flex-col items-center pt-8 lg:pt-0 mb-8 scroll-m-16 lg:scroll-m-0"
   >
     <div class="lg:w-1/3 md:order-1 lg:order-2">
       <div

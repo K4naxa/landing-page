@@ -19,7 +19,10 @@ const closeModal = () => {
 </script>
 
 <template>
-  <section id="portfolio" class="py-8 mx-auto text-textPrimary">
+  <section
+    id="portfolio"
+    class="py-8 mx-auto text-textPrimary scroll-m-16 lg:scroll-m-0"
+  >
     <div>
       <h2 class="flex items-center">
         My
