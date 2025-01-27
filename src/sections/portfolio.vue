@@ -19,7 +19,7 @@ const closeModal = () => {
 </script>
 
 <template>
-  <section id="portfolio" class="py-8 max-w-5xl mx-auto text-textPrimary">
+  <section id="portfolio" class="py-8 mx-auto text-textPrimary">
     <div>
       <h2 class="flex items-center">
         My
@@ -29,11 +29,11 @@ const closeModal = () => {
     </div>
 
     <!-- Portfolio Items -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
       <div
         v-for="(item, index) in orderedItems"
         @click="openModal(item)"
-        class="p-4 bg-bgSecondary rounded-lg object-fill cursor-pointer hover:shadow-lg hover:scale-105 duration-150 transition-transform"
+        class="p-4 bg-bgSecondary rounded-lg object-fill cursor-pointer hover:shadow-xl hover:scale-105 duration-150 transition-transform shadow-primaryColor"
         :key="index"
       >
         <img

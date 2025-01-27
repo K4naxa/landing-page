@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.vue";
 import Portfolio from "../sections/portfolio.vue";
 </script>
 <template>
-  <div>
+  <div class="bg-gradient-to-tr from-bgPrimary to-bgLinear">
     <Layout>
       <About />
 

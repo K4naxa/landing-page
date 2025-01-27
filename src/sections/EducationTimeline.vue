@@ -29,7 +29,7 @@ const _formatItemDate = (item) => {
 };
 </script>
 <template>
-  <section id="education" class="py-8 max-w-5xl mx-auto text-textPrimary">
+  <section id="education" class="py-8 mx-auto text-textPrimary">
     <div>
       <h2>
         <p class="mr-2 text-primaryColor">Educational</p>
@@ -39,27 +39,28 @@ const _formatItemDate = (item) => {
     </div>
 
     <!-- Timeline -->
-    <ul class="relative list-none pl-0 mt-8">
-      <!-- Vertical line -->
-      <div class="absolute z-10 top-10 left-12 w-px h-full bg-gray-200" />
-
+    <ul class="list-none pl-0 mt-8">
       <!-- Loop throught items and create an element for everyone of them -->
       <li
         v-for="(item, index) in orderedItems"
         :key="index"
-        class="relative mb-8 flex items-start space-x-4 rounded-lg p-4 bg-bgSecondary"
+        class="relative mb-8 flex flex-col md:flex-row items-start space-x-4 rounded-lg p-4 bg-bgSecondary justify-center"
       >
         <!-- Logo Wrapper -->
         <div
-          class="relative my-auto z-20 flex items-center justify-center w-16 h-16 rounded-full border-4 border-gray-300 bg-gray-100"
-          :class="{ 'bg-primary-100': !(item.place && item.place.logoUrl) }"
+          class="flex mb-8 lg:my-auto items-center justify-center h-20 w-full md:w-20"
         >
-          <!-- If item has an image -->
-          <img
-            v-if="item && item.logoUrl"
-            :src="item.logoUrl"
-            class="rounded-full w-full h-full object-cover"
-          />
+          <div
+            class="relative my-auto z-10 flex items-center justify-center w-20 h-20 rounded-full"
+            :class="{ 'bg-primary-100': !(item.place && item.logo) }"
+          >
+            <!-- If item has an image -->
+            <img
+              v-if="item && item.logo"
+              :src="item.logo"
+              class="rounded-full w-full h-full object-scale-down"
+            />
+          </div>
         </div>
 
         <!-- Item Content -->
@@ -75,7 +76,7 @@ const _formatItemDate = (item) => {
                 {{ item.place ? item.place : "" }}
               </h6>
             </div>
-            <div>
+            <div class="absolute top-0 right-0 mt-2 mr-2">
               <span
                 v-for="date in _formatItemDate(item)"
                 :key="date.label"

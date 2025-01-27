@@ -6,9 +6,13 @@
   :root {
     --color-bg-primary: 34 38 42;
     --color-bg-secondary: 27 30 34;
+    --color-bg-linear: 27 30 34;
     --color-text-primary: 255 255 255;
     --color-test-gray: 156 163 175;
     --color-primary: 230 0 69;
+    --color-primary2: 230 0 69;
+
+    --color-secondary: 40 0 230;
   }
 }
 
@@ -21,6 +25,14 @@ h2 {
 
 .no-scroll {
   overflow: hidden;
+}
+
+.primaryLinear {
+  background: linear-gradient(
+    90deg,
+    rgba(var(--color-bg-linear), 1) 0%,
+    rgba(var(--color-bg-secondary), 1) 100%
+  );
 }
 
 .scrollbar-thin::-webkit-scrollbar {

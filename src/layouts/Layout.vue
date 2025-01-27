@@ -59,8 +59,8 @@ import NavLink from "../components/NavLink.vue";
       Hire me
     </a>
   </nav>
-  <div class="mx-4">
+  <div class="px-4 max-w-[1380px] mx-auto">
     <slot />
   </div>
-  <div class="mb-16" />
+  <div class="mb-16 lg:mb-0" />
 </template>
