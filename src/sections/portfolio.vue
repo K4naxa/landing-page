@@ -36,7 +36,7 @@ const closeModal = () => {
       <div
         v-for="(item, index) in orderedItems"
         @click="openModal(item)"
-        class="p-4 bg-bgSecondary rounded-lg object-fill cursor-pointer hover:shadow-xl hover:scale-105 duration-150 transition-transform shadow-primaryColor"
+        class="p-4 bg-bgSecondary rounded-lg object-fill cursor-pointer hover:shadow-xl hover:scale-105 border border-bgPrimary hover:border-primaryColor duration-150 transition-transform shadow-primaryColor"
         :key="index"
       >
         <img
@@ -140,9 +140,9 @@ const closeModal = () => {
           :href="selectedProject.documentation"
           target="_blank"
           rel="noopener noreferrer"
-          class="rounded-md border p-2 text-primaryColor bg-bgSecondary"
+          class="rounded-md flex gap-2 border border-primaryColor text-textPrimary px-4 py-2 hover:bg-primaryColor hover:text-bgPrimary transition-colors duration-150"
           :class="{
-            'opacity-50 cursor-not-allowed pointer-events-none':
+            'opacity-30 cursor-not-allowed pointer-events-none':
               !selectedProject.documentation,
           }"
         >
@@ -151,22 +151,26 @@ const closeModal = () => {
         <a
           :href="selectedProject.github"
           target="_blank"
-          rel="noopener noreferrer"
-          class="rounded-md border p-2 text-primaryColor"
+          class="rounded-md flex gap-2 border border-primaryColor text-textPrimary px-4 py-2 hover:bg-primaryColor hover:text-bgPrimary transition-colors duration-150"
           :class="{
-            'opacity-50 cursor-not-allowed pointer-events-none':
+            'opacity-30 cursor-not-allowed pointer-events-none':
               !selectedProject.github,
           }"
         >
+          <img
+            src="/src/assets/github-mark-white.png"
+            alt="github logo"
+            class="h-6 w-6"
+          />
           Github
         </a>
         <a
           :href="selectedProject.demo"
           target="_blank"
           rel="noopener noreferrer"
-          class="rounded-md bg-primaryColor text-white p-2"
+          class="rounded-md flex gap-2 border border-primaryColor text-textPrimary px-4 py-2 hover:bg-primaryColor hover:text-bgPrimary transition-colors duration-150"
           :class="{
-            'opacity-50 cursor-not-allowed pointer-events-none':
+            'opacity-30 cursor-not-allowed pointer-events-none':
               !selectedProject.demo,
           }"
         >
