@@ -3,7 +3,7 @@
     {
       "id": "urheilupaivakirja",
       "created": ["2024/07"],
-      "image": "src/assets/projectImages/UPK-512x512.png",
+      "image": "/projectImages/UPK-512x512.png",
       "title": "Urheilupäiväkirja",
       "description": "A comprehensive web application designed to help students and teachers track workout activities and academic progress. Students can log their workouts, monitor their training intensity, and track their progress toward course goals. Teachers can oversee student activity, analyze training data, and provide feedback to ensure students meet their physical education objectives. The application fosters a collaborative environment between students and educators, promoting accountability and motivation",
       "key_features": [
@@ -28,7 +28,7 @@
     {
       "id": "charity-auction",
       "created": ["2024/11"],
-      "image": "src/assets/projectImages/MahdollisuuksienKirppis_landingpage.png",
+      "image": "/projectImages/MahdollisuuksienKirppis_landingpage.png",
       "title": "Charity Auction",
       "description": "A professional landing page designed for a charity auction event, showcasing the event's purpose, auction items, and participation rules. The page includes a registration form for attendees who want to participate in the auction. Built with a 0€ budget, the project demonstrates resourcefulness and creativity. Wordpress was chosen as the CMS to ensure ease of maintenance and future updates by non-techinal users.",
       "key_features": [
@@ -51,7 +51,7 @@
     {
       "id": "barrocos-bostons",
       "created": ["2024/1"],
-      "image": "src/assets/projectImages/Barrocos-Logo.jpg",
+      "image": "/projectImages/Barrocos-Logo.jpg",
       "title": "Barrocos Bostons",
       "description": "A fully-featured website created for a dog breeder to showcase their breeding program, dogs, and puppies. The site includes detailed profiles for each dog, a blog for updates, and a contact form for inquiries. Built with a 0€ budget, the project prioritized the breeder's needs, including dual-language support (Finnish and English) and an intuitive content management system. The site uses WooCommerce to categorize dogs by litter and gender, and Elementor for easy editing.",
       "key_features": [
@@ -76,7 +76,7 @@
     {
       "id": "ohjaamon-ajanvarausjarjestelma",
       "created": ["2025/2"],
-      "image": "src/assets/projectImages/portfolio.png",
+      "image": "",
       "title": "Varauskalenteri",
       "description": "A web-based booking system designed for managing classroom computer reservations. Teachers can dynamically create and manage classrooms, while students can book computers for specific time slots. The system includes a calendar view for teachers to monitor bookings and ensure efficient resource allocation. Built with a 0€ budget, the application leverages modern technologies to deliver a seamless user experience.",
       "key_features": [

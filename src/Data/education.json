@@ -12,7 +12,7 @@
       "id": "self_taught_webdev",
       "place": "The Odin Project + Online Resources",
       "period": ["2022/02", "2023/12"],
-      "logo": "../assets/educationImages/odinfavi.png",
+      "logo": "/educationImages/odinfavi.png",
       "title": "Self-taught studies for Front-End Development",
       "description": "Got interested in web development and started learning HTML, CSS, and JavaScript. Used online resources and tutorials to learn the basics of front-end development. Developed a passion for creating interactive and user-friendly websites. Completed The Odin Project curriculums and built several projects to practice my skills."
     },
@@ -21,7 +21,7 @@
       "id": "tredu",
       "place": "Tredu Tampereen Seudun Ammattiopisto",
       "period": ["2024/1", "2025/12"],
-      "logo": "../assets/educationImages/faviconV2.png",
+      "logo": "/educationImages/faviconV2.png",
 
       "title": "Tieto- ja viestintätekniikan perustutkinto",
       "description": "Started Studying at Tredu to get a degree in Information and Communication Technology. Studied programming, databases, and networking. Most of my time has been spent on doing multiple projects for the school and other clients of the scool. I have also been working on my own projects to deepen my understanding of programming and software development."
