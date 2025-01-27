@@ -6,17 +6,13 @@ import Portfolio from "../sections/portfolio.vue";
 </script>
 <template>
   <div>
-    <Layout />
+    <Layout>
+      <About />
 
-    <About />
+      <EducationTimeline />
 
-    <div class="h-1 w-3/4 bg-bgSecondary rounded-full mx-auto" />
-
-    <EducationTimeline />
-
-    <div class="h-1 w-3/4 bg-bgSecondary rounded-full mx-auto" />
-
-    <Portfolio />
+      <Portfolio />
+    </Layout>
   </div>
 </template>
 >

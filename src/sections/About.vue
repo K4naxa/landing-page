@@ -16,7 +16,7 @@
       <h1
         class="title-font sm:text-6xl leading-6 text-3xl mb-4 font-bold text-white"
       >
-        Hi, I'm <span class="text-primaryColor">Jami TEST</span>
+        Hi, I'm <span class="text-primaryColor">Jami</span>
       </h1>
       <h3 class="title-font sm:text-3xl text-xl mb-4 font-bold text-white">
         Fullstack Web Developer

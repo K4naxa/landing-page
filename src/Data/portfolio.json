@@ -3,12 +3,97 @@
     {
       "id": "urheilupaivakirja",
       "created": ["2024/07"],
-      "image": "",
+      "image": "src/assets/projectImages/UPK-512x512.png",
       "title": "Urheilupäiväkirja",
-      "description": "A web application for tracking your workouts and workout activity for the students. The application allows the users to log in and track their workouts and see their school course progression. Teachers can monitor the students' progress, activity, training intensity and lenghts. ",
-      "stack": ["React", "Node.js", "Express", "mySQL"],
+      "description": "A comprehensive web application designed to help students and teachers track workout activities and academic progress. Students can log their workouts, monitor their training intensity, and track their progress toward course goals. Teachers can oversee student activity, analyze training data, and provide feedback to ensure students meet their physical education objectives. The application fosters a collaborative environment between students and educators, promoting accountability and motivation",
+      "key_features": [
+        "User authentication for students and teachers.",
+        "Workout logging with details such as duration, intensity, and type.",
+        "Progress tracking and visualization for students.",
+        "Teacher dashboard for monitoring student activity with Week / Month / Year views.",
+        "Integration with school course progression systems. Teacher can modify the students course requirements and the students can see their progress towards the course goals."
+      ],
+      "technical_highlights": [
+        "Built with React for a dynamic and responsive frontend.",
+        "Styled using TailwindCSS for a modern and customizable UI.",
+        "Backend powered by Node.js and Express for robust API handling.",
+        "Data stored and managed in a mySQL database for scalability and reliability."
+      ],
+      "stack": ["React", "TailwindCSS", "Node.js", "Express", "mySQL"],
       "github": "https://github.com/K4naxa/Urheilupaivakirja",
       "documentation": "https://github.com/K4naxa/urheilupaivakirja-dokumentaatio",
+      "demo": ""
+    },
+
+    {
+      "id": "charity-auction",
+      "created": ["2024/11"],
+      "image": "src/assets/projectImages/MahdollisuuksienKirppis_landingpage.png",
+      "title": "Charity Auction",
+      "description": "A professional landing page designed for a charity auction event, showcasing the event's purpose, auction items, and participation rules. The page includes a registration form for attendees who want to participate in the auction. Built with a 0€ budget, the project demonstrates resourcefulness and creativity. Wordpress was chosen as the CMS to ensure ease of maintenance and future updates by non-techinal users.",
+      "key_features": [
+        "Event details clearly displayed for attendees.",
+        "Registration form uses captcha to prevent spam.",
+        "Responsive design for seamless use across devices.",
+        "Easy to update, and maintain by non-technical users."
+      ],
+      "technical_highlights": [
+        "Auction made possible by using woocommerces customized review system as a bidding system.",
+        "Auction 'Live updates' made possible by using timed AJAX requests that update the review fields every 5 seconds.",
+        "Customized Wordpress theme to match the event's branding and style."
+      ],
+      "stack": ["Wordpress", "Elementor", "WooCommerce"],
+      "github": "",
+      "documentation": "",
+      "demo": "https://www.mahdollisuuksienkirppis.fi/"
+    },
+
+    {
+      "id": "barrocos-bostons",
+      "created": ["2024/1"],
+      "image": "src/assets/projectImages/Barrocos-Logo.jpg",
+      "title": "Barrocos Bostons",
+      "description": "A fully-featured website created for a dog breeder to showcase their breeding program, dogs, and puppies. The site includes detailed profiles for each dog, a blog for updates, and a contact form for inquiries. Built with a 0€ budget, the project prioritized the breeder's needs, including dual-language support (Finnish and English) and an intuitive content management system. The site uses WooCommerce to categorize dogs by litter and gender, and Elementor for easy editing.",
+      "key_features": [
+        "Dual-language support using Polylang",
+        "Search functionality for easy navigation.",
+        "Blog section for sharing updates and stories and achievements.",
+        "WooCommerce integration for organizing dog profiles.",
+        "Contact form for inquiries and communication"
+      ],
+      "technical_highlights": [
+        "Built on WordPress for ease of maintenance.",
+        "Enhanced with Elementor for drag-and-drop editing.",
+        "Integrated WooCommerce for structured content management.",
+        "Utilized Polylang for seamless multilingual support."
+      ],
+      "stack": ["Wordpress", "Elementor", "WooCommerce", "Polylang"],
+      "github": "",
+      "documentation": "",
+      "demo": "https://www.barrocos.net/"
+    },
+
+    {
+      "id": "ohjaamon-ajanvarausjarjestelma",
+      "created": ["2025/2"],
+      "image": "src/assets/projectImages/portfolio.png",
+      "title": "Varauskalenteri",
+      "description": "A web-based booking system designed for managing classroom computer reservations. Teachers can dynamically create and manage classrooms, while students can book computers for specific time slots. The system includes a calendar view for teachers to monitor bookings and ensure efficient resource allocation. Built with a 0€ budget, the application leverages modern technologies to deliver a seamless user experience.",
+      "key_features": [
+        "Dynamic classroom creation and management with classroom creator.",
+        "Real-time booking system for students.",
+        "Calendar view for teachers to monitor reservations.",
+        "Real-time updates using Pusher for instant notifications."
+      ],
+      "technical_highlights": [
+        "Frontend developed with Vue3 for a reactive and interactive interface.",
+        "Backend powered by Laravel for robust API handling.",
+        "Real-time functionality enabled by Pusher.",
+        "Data stored in a mySQL database for reliability."
+      ],
+      "stack": ["Vue3", "TailwindCSS", "Laravel", "Pusher", "mySQL"],
+      "github": "",
+      "documentation": "",
       "demo": ""
     }
   ]

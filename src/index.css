@@ -7,10 +7,33 @@
     --color-bg-primary: 34 38 42;
     --color-bg-secondary: 27 30 34;
     --color-text-primary: 255 255 255;
+    --color-test-gray: 156 163 175;
     --color-primary: 230 0 69;
   }
 }
 
+html {
+  @apply scrollbar-thin;
+}
 h2 {
-  @apply text-3xl font-bold text-textPrimary uppercase flex;
+  @apply text-3xl font-bold text-textPrimary uppercase flex flex-wrap;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgb(230 0 69);
+  border-radius: 9999px; /* Full rounded corners */
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background-color: rgb(27 30 34);
+  border-radius: 9999px; /* Full rounded corners */
 }
