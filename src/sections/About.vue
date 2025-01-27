@@ -12,7 +12,7 @@
         <img
           class="object-center object-cover h-full w-full"
           alt="hero"
-          src="../assets/hero.jpg"
+          src="../assets/Hero.jpg"
         />
       </div>
     </div>
