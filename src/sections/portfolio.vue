@@ -10,11 +10,24 @@ const openModal = (item) => {
   selectedProject.value = item;
   showModal.value = true;
   document.body.classList.add("no-scroll");
+  // Push a new state to the browser history, so that user can swipe back from the modal
+  history.pushState({ modalOpen: false }, "", "");
+  history.pushState({ modalOpen: true }, "", "");
+  window.addEventListener("popstate", handlePopState);
 };
 
 const closeModal = () => {
   showModal.value = false;
   document.body.classList.remove("no-scroll");
+  history.back();
+};
+
+const handlePopState = (event) => {
+  // Close the modal if the back button is pressed
+  if (showModal) {
+    closeModal();
+    window.removeEventListener("popstate", handlePopState);
+  }
 };
 </script>
 
@@ -36,7 +49,7 @@ const closeModal = () => {
       <div
         v-for="(item, index) in orderedItems"
         @click="openModal(item)"
-        class="p-4 bg-bgSecondary rounded-lg object-fill cursor-pointer hover:shadow-xl hover:scale-105 border border-bgPrimary hover:border-primaryColor duration-150 transition-transform shadow-primaryColor"
+        class="p-4 bg-bgSecondary rounded-lg object-fill cursor-pointer hover:shadow-xl hover:scale-105 border border-bgPrimary lg:hover:border-primaryColor duration-150 transition-transform shadow-primaryColor"
         :key="index"
       >
         <img
@@ -46,7 +59,7 @@ const closeModal = () => {
         />
 
         <div>
-          <h3 class="text-primaryColor text-2xl mb-2 text-center">
+          <h3 class="text-lg mb-2 uppercase text-center">
             {{ item.title }}
           </h3>
           <div class="flex items-center flex-wrap w-full gap-2">
@@ -66,11 +79,11 @@ const closeModal = () => {
   <!-- Project Modal -->
   <div
     v-if="showModal"
-    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 text-textPrimary z-50"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center text-textPrimary z-50"
     @click.self="closeModal"
   >
     <div
-      class="bg-bgPrimary rounded-lg max-w-2xl w-full h-full p-6 relative lg:max-h-[90vh] overflow-auto scrollbar-thin"
+      class="bg-bgPrimary rounded-lg lg:max-w-4xl flex flex-col w-full h-full lg:h-fit p-6 relative lg:max-h-[90vh] overflow-auto scrollbar-thin"
     >
       <button
         @click="closeModal"
@@ -98,9 +111,12 @@ const closeModal = () => {
         alt="project image"
       />
 
-      <h3 class="text-primaryColor text-2xl mb-4">
-        {{ selectedProject.title }}
-      </h3>
+      <div class="mb-6">
+        <h2>
+          {{ selectedProject.title }}
+        </h2>
+        <div class="h-1 w-20 underline bg-primaryColor" />
+      </div>
       <p class="text-textSecondary mb-6">{{ selectedProject.description }}</p>
 
       <div class="flex flex-wrap gap-2 mb-6">
@@ -114,7 +130,12 @@ const closeModal = () => {
       </div>
 
       <div class="mb-6">
-        <h4 class="text-primaryColor text-lg mb-2">Key features</h4>
+        <div>
+          <h2 class="flex items-center text-lg">
+            Key
+            <p class="ml-2 text-primaryColor">Features</p>
+          </h2>
+        </div>
         <ul class="list-disc list-inside">
           <li v-for="(feature, i) in selectedProject.key_features" :key="i">
             {{ feature }}
@@ -123,7 +144,10 @@ const closeModal = () => {
       </div>
 
       <div class="mb-6">
-        <h4 class="text-primaryColor text-lg mb-2">Technical Highlights</h4>
+        <h2 class="flex items-center text-lg">
+          Technical
+          <p class="ml-2 text-primaryColor">Highlights</p>
+        </h2>
         <ul class="list-disc list-inside">
           <li
             v-for="(highlight, i) in selectedProject.technical_highlights"
@@ -135,7 +159,7 @@ const closeModal = () => {
       </div>
 
       <!-- Links -->
-      <div class="flex justify-between">
+      <div class="flex flex-wrap gap-4">
         <a
           :href="selectedProject.documentation"
           target="_blank"
@@ -168,13 +192,13 @@ const closeModal = () => {
           :href="selectedProject.demo"
           target="_blank"
           rel="noopener noreferrer"
-          class="rounded-md flex gap-2 border border-primaryColor text-textPrimary px-4 py-2 hover:bg-primaryColor hover:text-bgPrimary transition-colors duration-150"
+          class="rounded-md flex gap-2 border bg-primaryColor border-primaryColor text-white px-4 py-2 hover:text-bgPrimary transition-colors duration-150"
           :class="{
             'opacity-30 cursor-not-allowed pointer-events-none':
               !selectedProject.demo,
           }"
         >
-          Live Demo
+          Demo
         </a>
       </div>
     </div>

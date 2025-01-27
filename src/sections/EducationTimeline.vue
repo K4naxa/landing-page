@@ -33,12 +33,14 @@ const _formatItemDate = (item) => {
     id="education"
     class="py-8 mx-auto text-textPrimary scroll-m-16 lg:scroll-m-0"
   >
-    <div>
+    <div class="relative">
       <h2>
         <p class="mr-2 text-primaryColor">Educational</p>
-        background
+        <p class="ml-24 lg:ml-0">background</p>
       </h2>
-      <div class="h-1 w-20 underline bg-primaryColor" />
+      <div
+        class="h-1 w-20 top-10 absolute lg:relative lg:top-0 underline bg-primaryColor"
+      />
     </div>
 
     <!-- Timeline -->

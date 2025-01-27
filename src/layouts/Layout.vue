@@ -27,27 +27,12 @@ import NavLink from "../components/NavLink.vue";
   <nav
     class="md:hidden flex items-center justify-around h-16 fixed top-0 w-full z-50 rounded-t-md bg-bgSecondary border-b-2 shadow-md border-primaryColor text-sm"
   >
-    <a
-      href="#about"
-      class="text-slate-200 hover:text-primary-500 px-3 py-3 uppercase"
-    >
-      About
-    </a>
-    <a
-      href="#education"
-      class="text-slate-200 hover:text-primary-500 px-3 py-3 uppercase"
-    >
-      Education
-    </a>
-    <a
-      href="#portfolio"
-      class="text-slate-200 hover:text-primary-500 px-3 py-3 uppercase"
-    >
-      Portfolio
-    </a>
+    <NavLink to="#about">About</NavLink>
+    <NavLink to="#education">Education</NavLink>
+    <NavLink to="#portfolio">Portfolio</NavLink>
     <a
       href="#contact"
-      class="w-24 md:w-auto px-4 py-2 text-center bg-primary-500 bg-primaryColor rounded-md text-white md:rounded"
+      class="w-24 md:w-auto px-4 py-2 text-center bg-primaryColor rounded-md text-white md:rounded"
     >
       Hire me
     </a>
