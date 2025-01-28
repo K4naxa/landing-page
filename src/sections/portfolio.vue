@@ -49,7 +49,7 @@ const handlePopState = (event) => {
       <div
         v-for="(item, index) in orderedItems"
         @click="openModal(item)"
-        class="p-4 bg-bgSecondary rounded-lg object-fill cursor-pointer hover:shadow-xl hover:scale-105 border border-bgPrimary lg:hover:border-primaryColor duration-150 transition-transform shadow-primaryColor"
+        class="p-4 bg-bgSecondary rounded-lg object-fill cursor-pointer hover:shadow-lg hover:backdrop-blur-md hover:bg-opacity-10 border border-bgPrimary hover:border-primaryColor hover:bg-primaryColor duration-150 transition-all"
         :key="index"
       >
         <img
@@ -79,7 +79,7 @@ const handlePopState = (event) => {
   <!-- Project Modal -->
   <div
     v-if="showModal"
-    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center text-textPrimary z-50"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center backdrop-blur-sm justify-center text-textPrimary z-50"
     @click.self="closeModal"
   >
     <div
