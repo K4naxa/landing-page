@@ -5,9 +5,20 @@
     id="about"
     class="container mx-auto flex md:flex-row flex-col items-center pt-8 lg:pt-0 mb-8 scroll-m-16 lg:scroll-m-0"
   >
-    <div class="lg:w-1/3 md:order-1 lg:order-2">
+    <div class="lg:w-1/3 md:order-1 lg:order-2 relative">
+      <!-- Gradient background elements -->
+      <div class="absolute inset-0 z-0 animate-hue-rotate">
+        <div
+          class="absolute top-1/2 left-1/2 w-[110%] h-[110%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(var(--tw-gradient-stops))] from-primaryColor via-transparent to-primaryColor opacity-30 blur-[100px] animate-hue-pulse"
+        ></div>
+        <div
+          class="absolute top-1/2 left-1/2 w-[120%] h-[120%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(var(--tw-gradient-stops))] from-transparent via-primaryColor to-transparent opacity-20 blur-[80px] animate-hue-pulse-2"
+        ></div>
+      </div>
+
+      <!-- Existing image container -->
       <div
-        class="flex mx-auto h-80 w-80 shadow-lg shadow-primaryColor justify-center content-center rounded-full overflow-hidden"
+        class="flex mx-auto h-80 w-80 justify-center content-center rounded-full overflow-hidden relative z-10"
       >
         <img
           class="object-center object-cover h-full w-full"
@@ -62,3 +73,58 @@
     </div>
   </section>
 </template>
+<style scoped>
+@keyframes hue-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hue-scale {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.animate-hue-rotate {
+  animation: hue-rotate 8s linear infinite;
+}
+
+.animate-hue-scale {
+  animation: hue-scale 6s ease-in-out infinite;
+}
+@keyframes hue-pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes hue-pulse-2 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+.animate-hue-pulse {
+  animation: hue-rotate 8s linear infinite, hue-pulse 6s ease-in-out infinite;
+}
+
+.animate-hue-pulse-2 {
+  animation: hue-rotate 8s linear infinite, hue-pulse-2 5s ease-in-out infinite;
+}
+</style>
