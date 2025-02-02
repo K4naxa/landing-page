@@ -1,8 +1,20 @@
 <script setup>
-import LandingPage from "./Pages/LandingPage.vue";
+import EducationTimeline from "./sections/EducationTimeline.vue";
+import About from "./sections/About.vue";
+import Layout from "./layouts/Layout.vue";
+import Portfolio from "./sections/portfolio.vue";
+import Contact from "./sections/Contact.vue";
 </script>
-
 <template>
-  <!-- Landing page  -->
-  <LandingPage />
+  <div class="bg-gradient-to-tr from-bgPrimary to-bgLinear overflow-x-hidden">
+    <Layout>
+      <About />
+
+      <EducationTimeline />
+
+      <Portfolio />
+      <Contact />
+    </Layout>
+  </div>
 </template>
+>
