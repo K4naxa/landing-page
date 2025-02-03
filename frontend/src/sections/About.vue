@@ -53,14 +53,14 @@
         <a
           href="/src/assets/cv.pdf"
           target="_blank"
-          class="rounded-md border border-primaryColor text-textPrimary px-4 py-2 hover:bg-primaryColor hover:text-bgPrimary transition-colors duration-150"
+          class="rounded-md text-textPrimary px-4 py-2 hover:bg-primaryColor bg-primaryColor active:scale-95 hover:text-bgPrimary transition-all duration-150"
         >
           CV
         </a>
         <a
           href="https://github.com/K4naxa"
           target="_blank"
-          class="rounded-md flex gap-2 border border-primaryColor text-textPrimary px-4 py-2 hover:bg-primaryColor hover:text-bgPrimary transition-colors duration-150"
+          class="rounded-md flex gap-2 bg-primaryColor active:scale-95 border border-primaryColor text-textPrimary px-4 py-2 hover:text-bgPrimary transition-all duration-150"
         >
           <img
             src="/src/assets/github-mark-white.png"

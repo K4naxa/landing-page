@@ -116,10 +116,12 @@ const submitForm = async () => {
         <h1 class="text-3xl font-extrabold mt-8">Socials</h1>
 
         <div class="flex flex-wrap gap-6">
-          <div class="py-2 px-4 w-fit rounded-md bg-bgPrimary">Linkedin</div>
-          <div class="py-2 px-4 w-fit rounded-md bg-bgPrimary">Email</div>
-          <div class="py-2 px-4 w-fit rounded-md bg-bgPrimary">Github</div>
-          <div class="py-2 px-4 w-fit rounded-md bg-bgPrimary">Phone</div>
+          <a
+            href="https://www.linkedin.com/in/jami-hyvärinen-1aa237295"
+            target="_blank"
+            class="rounded-md text-textPrimary px-4 py-2 hover:bg-primaryColor bg-primaryColor active:scale-95 hover:text-bgPrimary transition-all duration-150"
+            >Linkedin</a
+          >
         </div>
       </div>
 
