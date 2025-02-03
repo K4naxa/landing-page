@@ -1,6 +1,6 @@
 import os
 import smtplib
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 from email.message import EmailMessage
 from dotenv import load_dotenv
@@ -47,6 +47,33 @@ def verify_captcha():
     else:
         return jsonify({'error': 'reCAPTCHA verification failed'}), 400
     
+# CV download endpoint
+@app.route('/api/cv', methods=['POST'])
+def get_cv():
+    data = request.get_json()
+    token = data.get('recaptcha_token')
+
+    if not token:
+        return jsonify({'error': 'Missing reCAPTCHA token'}), 400
+
+    # Verify with Google's reCAPTCHA API
+    secret_key = os.getenv('RECAPTCHA_SECRET_KEY')
+    response = requests.post(
+        'https://www.google.com/recaptcha/api/siteverify',
+        data={
+            'secret': secret_key,
+            'response': token
+        }
+    )
+    result = response.json()
+
+    # Validate reCAPTCHA response
+    if result.get('success') and result.get('score', 0) >= 0.5 and result.get('action') == 'cv_download':
+        # Return the CV file
+        cv_path = os.path.join(os.getcwd(), "protected", "cv.pdf")
+        return send_file(cv_path, mimetype='application/pdf', as_attachment=False)
+
+    return jsonify({'error': 'reCAPTCHA verification failed'}), 400
 
 # Contact form submission
 @app.route('/api/contact', methods=['POST'])
