@@ -3,6 +3,15 @@ import { useReCaptcha } from "vue-recaptcha-v3";
 import { ref } from "vue";
 import axios from "axios";
 
+import { toast } from "vue3-toastify";
+
+const fireToast = (message, type) => {
+  toast(message, {
+    type: type,
+    autoClose: 3000,
+  });
+};
+
 const { executeRecaptcha, recaptchaLoaded } = useReCaptcha();
 
 const cvLoading = ref(false);
@@ -36,7 +45,7 @@ const downloadCV = async () => {
     window.open(fileURL, "_blank");
     cvLoading.value = false;
   } catch (error) {
-    alert("Failed to download CV. reCAPTCHA verification might have failed.");
+    fireToast("Failed to download CV. Please try again.", "error");
     cvLoading.value = false;
   }
 };

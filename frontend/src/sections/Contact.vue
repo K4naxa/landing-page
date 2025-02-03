@@ -8,10 +8,14 @@ const recaptcha = async () => {
   return await executeRecaptcha("contact"); // Create a reCAPTCHA token
 };
 
-const formMessages = ref({
-  success: "",
-  error: "",
-});
+import { toast } from "vue3-toastify";
+
+const fireToast = (message, type) => {
+  toast(message, {
+    type: type,
+    autoClose: 3000,
+  });
+};
 
 const formLoading = ref(false);
 const formData = ref({
@@ -22,8 +26,6 @@ const formData = ref({
 });
 
 const submitForm = async () => {
-  formMessages.value.success = "";
-  formMessages.value.error = "";
   formLoading.value = true;
 
   if (
@@ -31,7 +33,7 @@ const submitForm = async () => {
     !formData.value.email ||
     !formData.value.message
   ) {
-    formMessages.value.error = "Please fill out all required fields.";
+    fireToast("Please fill out all required fields.", "error");
     formLoading.value = false;
     return;
   }
@@ -40,7 +42,7 @@ const submitForm = async () => {
   const token = await recaptcha();
 
   if (!token) {
-    formMessages.value.error = "Invalid reCAPTCHA. Please try again.";
+    fireToast("Invalid reCAPTCHA. Please try again.", "error");
     formLoading.value = false;
     return; // Exit if the token is invalid
   }
@@ -75,19 +77,17 @@ const submitForm = async () => {
       formData.value.subject = "";
       formData.value.message = "";
 
-      formMessages.value.success = "Message sent successfully!";
-      formMessages.value.error = "";
+      fireToast("Message sent successfully!", "success");
       formLoading.value = false;
     } else {
       // If the CAPTCHA validation fails, show an error message
       console.error("Error:", captchaResponse.statusText);
-      formMessages.value.error =
-        "Failed to validate reCAPTCHA. Please try again.";
+      fireToast("Failed to validate reCAPTCHA. Please try again.", "error");
       formLoading.value = false;
     }
   } catch (error) {
     console.error("Error:", error.response?.data || error.message);
-    formMessages.value.error = "Failed to send message. Please try again.";
+    fireToast("Failed to send message. Please try again.", "error");
   }
 };
 </script>
