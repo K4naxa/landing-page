@@ -1,29 +1,35 @@
-# Use the official Node.js 18 image as the base image
-FROM node:23.6.0 AS build
+# ===== FRONTEND BUILD =====
+FROM node:23.6.0 AS frontend-builder
 
-# Set the working directory inside the container
 WORKDIR /app
-
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-
-# Install dependencies
+COPY frontend/package*.json ./  
 RUN npm install
-
-# Copy the rest of the application code to the working directory
-COPY . .
-
-# Build the Vue 3 application for production
+COPY frontend/ .                
 RUN npm run build
 
-# Use an Nginx image to serve the built application
-FROM nginx:alpine
+# ===== BACKEND BUILD =====
+FROM python:3.11-slim AS backend
 
-# Copy the built application to the Nginx default public directory
-COPY --from=build /app/dist /usr/share/nginx/html
+WORKDIR /app
+COPY backend/requirements.txt . 
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port 80 to access the application
-EXPOSE 80
+# ===== PRODUCTION IMAGE =====
+FROM python:3.11-slim
+WORKDIR /app
 
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Copy Python dependencies
+COPY --from=backend /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+COPY --from=backend /usr/local/bin/gunicorn /usr/local/bin/gunicorn
+
+# Copy backend source
+COPY backend/ .                
+
+# Copy frontend build artifacts
+COPY --from=frontend-builder /app/dist ./frontend-dist
+
+# Runtime configuration
+ENV FLASK_APP=app.py            
+ENV FLASK_ENV=production
+EXPOSE 5000
+CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:5000", "--workers", "4"] 

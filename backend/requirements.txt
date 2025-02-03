@@ -1,3 +1,6 @@
 Flask==3.1.0
 Flask-Cors==5.0.0
 python-http-client==3.3.7
+python-dotenv==1.0.1
+gunicorn==23.0.0
+requests==2.32.3

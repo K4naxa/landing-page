@@ -1,6 +1,6 @@
 import os
 import smtplib
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, render_template, send_from_directory
 from flask_cors import CORS
 from email.message import EmailMessage
 from dotenv import load_dotenv
@@ -9,7 +9,7 @@ import requests
 # Load environment variables from .env file
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="frontend-dist", template_folder="frontend-dist")
 CORS(app, resources={
     r"/api/*": {"origins": "http://localhost:5173"},
 }, supports_credentials=True)
@@ -189,8 +189,13 @@ def contact():
         print(f'SMTP error: {str(e)}')
         return jsonify({'error': 'Failed to send email'}), 500
 
-if __name__ == '__main__':
-    app.run(debug=True)
-    
+
+@app.route("/")
+def serve_vue_app():
+    return render_template("index.html")
+
+@app.route('/<path:filename>')
+def serve_static(filename):
+    return send_from_directory(app.static_folder, filename)
     
     
