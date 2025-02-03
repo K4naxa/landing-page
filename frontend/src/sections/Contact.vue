@@ -125,7 +125,10 @@ const submitForm = async () => {
         </div>
       </div>
 
-      <form @submit.prevent="submitForm()" class="ml-auto space-y-4">
+      <form
+        @submit.prevent="submitForm()"
+        class="ml-auto space-y-4 max-w-lg mx-auto"
+      >
         <input
           required
           v-model="formData.name"
