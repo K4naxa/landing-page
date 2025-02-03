@@ -53,10 +53,17 @@ const handlePopState = (event) => {
         :key="index"
       >
         <img
+          v-if="item.image"
           class="object-contain object-center h-36 mx-auto rounded-lg w-full mb-4"
           :src="item.image"
           alt="project image"
         />
+        <div
+          v-else
+          class="object-contain flex items-center justify-center object-center h-36 mx-auto rounded-lg w-full mb-4 font-semibold text-lg text-primaryColor text-opacity-50"
+        >
+          Coming soon...
+        </div>
 
         <div>
           <h3 class="text-lg mb-2 uppercase text-center">

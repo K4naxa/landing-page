@@ -4,6 +4,7 @@
       "id": "self_taught_c++",
       "place": "Online Resources",
       "period": ["2020/01", "2022/01"],
+      "logo": "/educationImages/cpp.png",
       "title": "C++ Programming (personal development)",
       "description": "Studying C++ programming language to deepen my understanding of programming and software development. Specializing in object-oriented programming and data structures. Developed DLL injection software and reverse engineering skills. Became facinated by the low-level programming and the inner workings of the computer."
     },
