@@ -104,7 +104,7 @@ const submitForm = async () => {
       <div class="h-1 w-12 underline bg-primaryColor" />
     </div>
     <div
-      class="grid sm:grid-cols-2 items-start gap-16 mx-auto max-w-5xl bg-bgSecondary rounded-lg shadow-lg p-8"
+      class="grid sm:grid-cols-2 items-start gap-16 mx-auto w-full bg-bgSecondary rounded-lg shadow-lg p-8"
     >
       <div class="flex flex-col gap-4">
         <h1 class="text-3xl font-extrabold">Let's Talk</h1>
@@ -131,27 +131,27 @@ const submitForm = async () => {
           v-model="formData.name"
           type="text"
           placeholder="Name"
-          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm"
+          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor"
         />
         <input
           required
           v-model="formData.email"
           type="email"
           placeholder="Email"
-          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm"
+          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor"
         />
         <input
           v-model="formData.subject"
           type="text"
           placeholder="Subject"
-          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm"
+          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor"
         />
         <textarea
           required
           v-model="formData.message"
           placeholder="Message"
           rows="6"
-          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm"
+          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor"
         ></textarea>
         <button
           type="submit"
