@@ -32,4 +32,4 @@ COPY --from=frontend-builder /app/dist ./frontend-dist
 ENV FLASK_APP=app.py            
 ENV FLASK_ENV=production
 EXPOSE 8081
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8081", "--workers", "4"] 
+CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8081", "--workers", "1" ] 
