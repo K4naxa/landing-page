@@ -31,5 +31,5 @@ COPY --from=frontend-builder /app/dist ./frontend-dist
 # Runtime configuration
 ENV FLASK_APP=app.py            
 ENV FLASK_ENV=production
-EXPOSE 5000
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:5000", "--workers", "4"] 
+EXPOSE 8081
+CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8081", "--workers", "4"] 

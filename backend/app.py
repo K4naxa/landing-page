@@ -10,9 +10,7 @@ import requests
 load_dotenv()
 
 app = Flask(__name__, static_folder="frontend-dist", template_folder="frontend-dist")
-CORS(app, resources={
-    r"/api/*": {"origins": "http://localhost:5173"},
-}, supports_credentials=True)
+CORS(app)
 
 # Recaptcha validation
 @app.route('/api/captcha', methods=['POST'])

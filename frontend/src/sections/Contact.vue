@@ -48,7 +48,7 @@ const submitForm = async () => {
   // Send the message
   try {
     // Send the token to the CAPTCHA validation API first
-    const captchaResponse = await fetch("http://127.0.0.1:5000/api/captcha", {
+    const captchaResponse = await fetch("/api/captcha", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -61,7 +61,7 @@ const submitForm = async () => {
     if (captchaResponse.ok) {
       console.log("reCAPTCHA validation response is ok");
 
-      const response = await axios.post("http://127.0.0.1:5000/api/contact", {
+      const response = await axios.post("/api/contact", {
         name: formData.value.name,
         email: formData.value.email,
         subject: formData.value.subject,
