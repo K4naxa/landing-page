@@ -33,7 +33,7 @@ async def validate_recaptcha(token: str, action: str):
         raise HTTPException(status_code=403, detail="reCAPTCHA verification failed")
     
 
-#########################################################################################################################
+########### REST API Endpoints ###########
 
 # class for the request body of the /api/cv endpoint
 class RecaptchaRequest(BaseModel):
@@ -164,4 +164,5 @@ async def send_contact_email(data: ContactRequest):
     except Exception as e:
         print(f'SMTP error: {str(e)}')
         raise HTTPException(status_code=500, detail="Failed to send email")
+    
     
