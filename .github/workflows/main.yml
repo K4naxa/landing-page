@@ -7,6 +7,9 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        services: [ backend, frontend ]
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -23,10 +26,10 @@ jobs:
     - name: Build and Push
       uses: docker/build-push-action@v6
       with:
-        context: .
-        file: Dockerfile
+        context: ./${{ matrix.services }}
+        file: ./${{ matrix.services }}/Dockerfile
         push: true
         tags: |
-          ${{ secrets.DOCKERHUB_USERNAME }}/landing-page:latest
-          ${{ secrets.DOCKERHUB_USERNAME }}/landing-page:${{ github.sha }}
-        platforms: linux/arm64,linux/amd64
+          ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.services }}:latest
+          ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.services }}:${{ github.sha }}
+        platforms: linux/arm64
