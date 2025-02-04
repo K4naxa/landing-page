@@ -2,10 +2,11 @@
 import { ref } from "vue";
 import axios from "axios";
 import { VueReCaptcha, useReCaptcha } from "vue-recaptcha-v3";
+
 const { executeRecaptcha, recaptchaLoaded } = useReCaptcha();
 const recaptcha = async () => {
   await recaptchaLoaded();
-  return await executeRecaptcha("contact"); // Create a reCAPTCHA token
+  return await executeRecaptcha("contact"); // Create a reCAPTCHA token with the action name "contact"
 };
 
 import { toast } from "vue3-toastify";
@@ -28,6 +29,7 @@ const formData = ref({
 const submitForm = async () => {
   formLoading.value = true;
 
+  // Validate form fields
   if (
     !formData.value.name ||
     !formData.value.email ||
@@ -45,48 +47,35 @@ const submitForm = async () => {
     fireToast("Invalid reCAPTCHA. Please try again.", "error");
     formLoading.value = false;
     return; // Exit if the token is invalid
+  } else {
+    console.log("reCAPTCHA token created successfully");
   }
 
-  // Send the message
   try {
-    // Send the token to the CAPTCHA validation API first
-    const captchaResponse = await fetch("/api/captcha", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ recaptcha_token: token }),
-      credentials: "include", // Add this
+    // Send the message to the backend with the reCAPTCHA token
+    const response = await axios.post("/api/contact", {
+      name: formData.value.name,
+      email: formData.value.email,
+      subject: formData.value.subject,
+      message: formData.value.message,
+      recaptcha_token: token,
     });
 
-    // If the CAPTCHA validation is successful (status 200), submit the form
-    if (captchaResponse.ok) {
-      console.log("reCAPTCHA validation response is ok");
+    console.log("Success:", response.data.message);
 
-      const response = await axios.post("/api/contact", {
-        name: formData.value.name,
-        email: formData.value.email,
-        subject: formData.value.subject,
-        message: formData.value.message,
-      });
+    // Clear form fields
+    formData.value = {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    };
 
-      console.log("Success:", response.data.message);
-      // Clear form fields
-      formData.value.name = "";
-      formData.value.email = "";
-      formData.value.subject = "";
-      formData.value.message = "";
-
-      fireToast("Message sent successfully!", "success");
-      formLoading.value = false;
-    } else {
-      // If the CAPTCHA validation fails, show an error message
-      console.error("Error:", captchaResponse.statusText);
-      fireToast("Failed to validate reCAPTCHA. Please try again.", "error");
-      formLoading.value = false;
-    }
+    fireToast("Message sent successfully!", "success");
+    formLoading.value = false;
   } catch (error) {
     console.error("Error:", error.response?.data || error.message);
+    formLoading.value = false;
     fireToast("Failed to send message. Please try again.", "error");
   }
 };

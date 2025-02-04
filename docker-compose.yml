@@ -1,0 +1,29 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+    - "8081:80"
+    depends_on:
+    - backend
+    restart: unless-stopped
+    networks:
+    - landing_page_network
+    expose:
+    - "80"
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file:
+    - .env
+    restart: unless-stopped
+    networks:
+    - landing_page_network
+    expose:
+    - "8000"
+networks:
+  landing_page_network:
+    driver: bridge

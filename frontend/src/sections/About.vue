@@ -24,6 +24,8 @@ const downloadCV = async () => {
     alert("reCAPTCHA failed. Please try again.");
     cvLoading.value = false;
     return;
+  } else {
+    console.log("reCAPTCHA token created successfully");
   }
 
   try {
@@ -33,7 +35,6 @@ const downloadCV = async () => {
       { responseType: "blob" } // Get binary data
     );
 
-    console.log("reCaptcha validation response is ok");
     console.log("Success: CV downloaded");
 
     // Create a URL object from the blob data
