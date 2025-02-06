@@ -64,7 +64,7 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <div class="flex w-screen overflow-hidden relative">
+  <div class="flex h-screen w-screen overflow-hidden relative">
     <!-- Mobile Header (visible on small screens) -->
     <header
       class="lg:hidden fixed top-0 left-0 right-0 z-50 transition-transform duration-300"
@@ -111,9 +111,9 @@ onUnmounted(() => {
     </header>
 
     <!-- Desktop sidebar (hidden on small screens) -->
-    <div class="lg:block fixed top-0 left-8 w-64 h-screen z-50">
+    <div class="hidden lg:flex fixed left-8 w-64 h-screen z-50">
       <!-- left side bar content -->
-      <div class="flex flex-col h-fit justify-center glass-effect">
+      <div class="flex flex-col my-auto h-fit justify-center glass-effect">
         <!-- photo + name -->
         <div class="flex flex-col items-center mb-8">
           <div
@@ -149,7 +149,9 @@ onUnmounted(() => {
     </div>
 
     <!-- Main Content -->
-    <div class="mt-24 lg:mt-0 lg:ml-80 w-full min-h-screen">
+    <div
+      class="mt-24 lg:mt-0 lg:ml-80 w-full min-h-screen overflow-y-auto overflow-x-hidden scrollbar-thin"
+    >
       <div class="px-4 mx-auto">
         <slot />
       </div>
