@@ -81,10 +81,7 @@ const submitForm = async () => {
 };
 </script>
 <template>
-  <section
-    id="contact"
-    class="py-8 mx-auto text-textPrimary scroll-m-16 lg:scroll-m-0"
-  >
+  <div class="text-textPrimary">
     <div class="mb-8">
       <h2 class="flex items-center text-primaryColor">
         contact
@@ -178,5 +175,5 @@ const submitForm = async () => {
         </button>
       </form>
     </div>
-  </section>
+  </div>
 </template>

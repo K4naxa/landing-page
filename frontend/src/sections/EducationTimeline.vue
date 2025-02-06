@@ -29,10 +29,7 @@ const _formatItemDate = (item) => {
 };
 </script>
 <template>
-  <section
-    id="education"
-    class="py-8 mx-auto text-textPrimary scroll-m-16 lg:scroll-m-0"
-  >
+  <div class="text-textPrimary">
     <div class="relative">
       <h2>
         <p class="mr-2 text-primaryColor">Educational</p>
@@ -44,12 +41,12 @@ const _formatItemDate = (item) => {
     </div>
 
     <!-- Timeline -->
-    <ul class="list-none pl-0 mt-8">
+    <ul class="list-none pl-0 mt-8 flex flex-col gap-8">
       <!-- Loop throught items and create an element for everyone of them -->
       <li
         v-for="(item, index) in orderedItems"
         :key="index"
-        class="relative mb-8 flex flex-col md:flex-row items-start space-x-4 rounded-lg p-4 bg-bgSecondary justify-center"
+        class="relative flex flex-col md:flex-row items-start space-x-4 rounded-lg p-4 bg-bgSecondary justify-center"
       >
         <!-- Logo Wrapper -->
         <div
@@ -107,5 +104,5 @@ const _formatItemDate = (item) => {
         </div>
       </li>
     </ul>
-  </section>
+  </div>
 </template>

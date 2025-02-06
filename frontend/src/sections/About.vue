@@ -53,10 +53,7 @@ const downloadCV = async () => {
 </script>
 <template>
   <!-- Hero Section Start -->
-  <section
-    id="about"
-    class="container mx-auto flex md:flex-row flex-col items-center pt-8 lg:pt-0 mb-8 scroll-m-16 lg:scroll-m-0"
-  >
+  <div class="container flex md:flex-row flex-col items-center">
     <div class="lg:w-1/3 md:order-1 lg:order-2 relative">
       <!-- Gradient background elements -->
       <div class="absolute inset-0 z-0 animate-hue-rotate">
@@ -73,14 +70,14 @@ const downloadCV = async () => {
         class="flex mx-auto h-80 w-80 justify-center content-center rounded-full overflow-hidden relative z-10"
       >
         <img
-          class="object-center object-cover h-full w-full"
+          class="object-center object-cover h-full w-full inset-shadow-sm inset-shadow-primaryColor/50"
           alt="hero"
           src="../assets/Hero.jpg"
         />
       </div>
     </div>
     <div
-      class="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left mb-16 md:pt-10 pt-8 items-center text-center"
+      class="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left text-center content-center"
     >
       <h1
         class="title-font sm:text-6xl leading-6 text-3xl mb-4 font-bold text-white"
@@ -148,7 +145,7 @@ const downloadCV = async () => {
         </a>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 <style scoped>
 @keyframes hue-rotate {

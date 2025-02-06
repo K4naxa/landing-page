@@ -32,10 +32,7 @@ const handlePopState = (event) => {
 </script>
 
 <template>
-  <section
-    id="portfolio"
-    class="py-8 mx-auto text-textPrimary scroll-m-16 lg:scroll-m-0"
-  >
+  <div class="mx-auto text-textPrimary">
     <div>
       <h2 class="flex items-center">
         My
@@ -81,7 +78,7 @@ const handlePopState = (event) => {
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- Project Modal -->
   <div

@@ -8,7 +8,7 @@ module.exports = {
       },
       colors: {
         bgPrimary: "rgb(var(--color-bg-primary) / <alpha-value>)",
-        bgSecondary: "rgb(var(--color-bg-secondary) / <alpha-value>)",
+        bgSecondary: "rgba(var(--color-bg-secondary) / <alpha-value>)",
         textPrimary: "rgb(var(--color-text-primary) / <alpha-value>)",
         textGray: "rgb(var(--color-text-gray) / <alpha-value>)",
         bgLinear: "rgb(var(--color-bg-linear) / <alpha-value>)",
