@@ -1,10 +1,39 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, defineProps, computed } from "vue";
+import { useSwipe } from "@vueuse/core";
+
+const props = defineProps({
+  isMobile: Boolean,
+});
 
 const sections = ref([]);
 const activeSection = ref(null);
 const isHeaderVisible = ref(true);
+const isMobile = computed(() => props.isMobile);
 let observer = null;
+
+const swipeTarget = ref(null);
+const { direction, lengthX } = useSwipe(swipeTarget, {
+  threshold: 50, // minimum distance for a swipe
+  onSwipeEnd(e) {
+    if (!isMobile.value) return;
+
+    const currentIndex = sections.value.findIndex(
+      (section) => section.id === activeSection.value
+    );
+
+    if (direction.value === "right" && currentIndex > 0) {
+      // Swipe right - previous section
+      scrollToSection(sections.value[currentIndex - 1].id);
+    } else if (
+      direction.value === "left" &&
+      currentIndex < sections.value.length - 1
+    ) {
+      // Swipe left - next section
+      scrollToSection(sections.value[currentIndex + 1].id);
+    }
+  },
+});
 
 // Smooth scroll to section when clicking navigation
 const scrollToSection = (sectionId) => {
@@ -14,6 +43,8 @@ const scrollToSection = (sectionId) => {
   section.scrollIntoView({ behavior: "smooth" });
   activeSection.value = sectionId;
 };
+
+// Mobile functionalities
 
 onMounted(() => {
   // Initialize sections
@@ -33,7 +64,7 @@ onMounted(() => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("section-visible");
+          // entry.target.classList.add("section-visible");
           if (entry.intersectionRatio >= 0.5) {
             activeSection.value = entry.target.id;
           }
@@ -64,7 +95,7 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <div class="flex h-screen w-screen overflow-hidden relative">
+  <div class="flex h-screen w-screen overflow-x-hidden relative">
     <!-- Mobile Header (visible on small screens) -->
     <header
       class="lg:hidden fixed top-0 left-0 right-0 z-50 transition-transform duration-300"
@@ -73,32 +104,15 @@ onUnmounted(() => {
         'bg-backgroundColor/95 backdrop-blur-sm',
       ]"
     >
-      <div class="flex items-center justify-between px-4 py-3">
-        <div class="flex items-center space-x-3">
-          <img
-            class="h-10 w-10 rounded-full object-cover"
-            src="../assets/Hero.jpg"
-            alt="Profile"
-          />
-          <div>
-            <h2 class="text-white text-sm font-bold">Jami Hyvärinen</h2>
-            <p class="text-white/70 text-xs">Fullstack Web Developer</p>
-          </div>
-        </div>
-      </div>
-
       <!-- Mobile Navigation -->
-      <nav class="transition-all duration-300 h-24 fixed">
-        <div class="px-4 py-2 space-y-1 flex">
+      <nav class="transition-all duration-300 h-24 fixed w-full">
+        <div class="px-4 py-2 grid grid-cols-4 gap-4 w-full">
           <button
             v-for="section in sections"
             :key="section.id"
-            @click="
-              scrollToSection(section.id);
-              isMobileMenuOpen = false;
-            "
+            @click="scrollToSection(section.id)"
             :class="[
-              'w-full text-left text-white px-4 py-2 rounded transition-all',
+              'w-full text-textPrimary px-4 py-2 rounded transition-all text-center',
               activeSection === section.id
                 ? 'bg-primaryColor'
                 : 'hover:bg-primaryColor/20',
@@ -113,14 +127,14 @@ onUnmounted(() => {
     <!-- Desktop sidebar (hidden on small screens) -->
     <div class="hidden lg:flex fixed left-8 w-64 h-screen z-50">
       <!-- left side bar content -->
-      <div class="flex flex-col my-auto h-fit justify-center glass-effect">
+      <div class="flex flex-col my-auto h-fit justify-center glass-effect p-4">
         <!-- photo + name -->
         <div class="flex flex-col items-center mb-8">
           <div
-            class="flex h-52 w-52 mb-4 justify-center content-center rounded-full overflow-hidden relative z-10"
+            class="flex h-3/4 w-3/4 mb-4 justify-center content-center rounded-full overflow-hidden relative z-10"
           >
             <img
-              class="object-center object-cover h-full w-full blurry-image-border"
+              class="object-center object-cover aspect-square"
               alt="hero"
               src="../assets/Hero.jpg"
             />
@@ -150,9 +164,10 @@ onUnmounted(() => {
 
     <!-- Main Content -->
     <div
-      class="mt-24 lg:mt-0 lg:ml-80 w-full min-h-screen overflow-y-auto overflow-x-hidden scrollbar-thin"
+      ref="swipeTarget"
+      class="mt-24 lg:mt-0 lg:ml-80 w-full overflow-x-hidden scrollbar-thin"
     >
-      <div class="px-4 mx-auto">
+      <div class="flex lg:flex-col">
         <slot />
       </div>
     </div>
