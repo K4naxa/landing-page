@@ -43,7 +43,8 @@ const scrollToSection = (sectionId) => {
   if (!section) return;
 
   section.scrollIntoView({ behavior: "smooth", block: "start" });
-  activeSection.value = sectionId;
+
+  section.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 // Mobile functionalities
