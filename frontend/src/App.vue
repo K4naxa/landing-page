@@ -56,7 +56,7 @@ onMounted(() => {
 <style scoped>
 /* Outer container for the whole app */
 .main-container {
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   overflow-x: hidden;
   /* When not on mobile, you might want vertical scroll */
