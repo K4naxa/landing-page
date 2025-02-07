@@ -20,11 +20,11 @@ const closeModal = () => {
     @click.self="closeModal"
   >
     <div
-      class="bg-black/ rounded-lg lg:max-w-4xl flex flex-col w-full h-full lg:h-fit p-6 relative lg:max-h-[90vh] overflow-auto scrollbar-thin bg-black/90 border border-gray-400 border-opacity-50"
+      class="bg-black/ rounded-lg lg:max-w-4xl flex flex-col w-full h-full lg:h-fit px-4 py-8 relative lg:max-h-[90vh] overflow-auto scrollbar-thin bg-black/90 border border-gray-400 border-opacity-50"
     >
       <button
         @click="closeModal"
-        class="absolute top-4 right-4 text-textPrimary hover:text-primaryColor"
+        class="absolute top-2 right-2 text-textPrimary hover:text-primaryColor"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
