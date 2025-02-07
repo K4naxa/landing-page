@@ -41,12 +41,12 @@ const _formatItemDate = (item) => {
     </div>
 
     <!-- Timeline -->
-    <ul class="list-none pl-0 mt-8 flex flex-col gap-8">
+    <ul class="list-none pl-0 mt-8 flex flex-col gap-12">
       <!-- Loop throught items and create an element for everyone of them -->
       <li
         v-for="(item, index) in orderedItems"
         :key="index"
-        class="relative flex flex-col md:flex-row items-start space-x-4 rounded-lg p-4 bg-bgSecondary justify-center"
+        class="relative flex flex-col md:flex-row items-start space-x-4 rounded-lg bg-bgSecondary justify-center"
       >
         <!-- Logo Wrapper -->
         <div
@@ -102,6 +102,11 @@ const _formatItemDate = (item) => {
             </div>
           </div>
         </div>
+
+        <hr
+          v-if="index !== orderedItems.length - 1"
+          class="h-1 w-3/4 absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white opacity-15 backdrop-blur-sm"
+        />
       </li>
     </ul>
   </div>
