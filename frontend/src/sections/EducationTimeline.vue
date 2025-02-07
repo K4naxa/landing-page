@@ -30,7 +30,7 @@ const _formatItemDate = (item) => {
 </script>
 <template>
   <div class="text-textPrimary">
-    <div class="relative">
+    <div class="relative mb-16">
       <h2>
         <p class="mr-2 text-primaryColor">Educational</p>
         <p class="ml-24 lg:ml-0">background</p>
@@ -41,7 +41,7 @@ const _formatItemDate = (item) => {
     </div>
 
     <!-- Timeline -->
-    <ul class="list-none pl-0 mt-8 flex flex-col gap-12">
+    <ul class="list-none pl-0 mt-8 flex flex-col gap-12 lg:gap-16">
       <!-- Loop throught items and create an element for everyone of them -->
       <li
         v-for="(item, index) in orderedItems"
@@ -68,7 +68,15 @@ const _formatItemDate = (item) => {
         <!-- Item Content -->
         <div class="flex-1">
           <!-- Header -->
-          <div class="flex items-start justify-between">
+          <div class="flex flex-col items-start justify-between">
+            <div class="lg:absolute top-0 right-0 flex space-x-2">
+              <span
+                v-for="date in _formatItemDate(item)"
+                :key="date.label"
+                class="text-xs text-textPrimary px-2 py-1 rounded glass-effect"
+                v-html="date.label"
+              ></span>
+            </div>
             <div>
               <h4
                 class="text-lg font-semibold text-textPrimary"
@@ -77,14 +85,6 @@ const _formatItemDate = (item) => {
               <h6 class="text-sm text-gray-500">
                 {{ item.place ? item.place : "" }}
               </h6>
-            </div>
-            <div class="absolute top-0 right-0 mt-2 mr-2">
-              <span
-                v-for="date in _formatItemDate(item)"
-                :key="date.label"
-                class="text-xs bg-primaryColor text-textPrimary px-2 py-1 rounded"
-                v-html="date.label"
-              ></span>
             </div>
           </div>
 
@@ -103,10 +103,10 @@ const _formatItemDate = (item) => {
           </div>
         </div>
 
-        <hr
+        <!-- <hr
           v-if="index !== orderedItems.length - 1"
           class="h-1 w-3/4 absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white opacity-15 backdrop-blur-sm"
-        />
+        /> -->
       </li>
     </ul>
   </div>

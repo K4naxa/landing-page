@@ -34,7 +34,7 @@ const handlePopState = (event) => {
 <template>
   <div class="mx-auto text-textPrimary scroll-m-16 lg:scroll-m-0">
     <!-- Header -->
-    <div class="mb-8">
+    <div class="relative mb-16">
       <h2 class="flex items-center">
         My
         <p class="ml-3 text-primaryColor">Portfolio</p>

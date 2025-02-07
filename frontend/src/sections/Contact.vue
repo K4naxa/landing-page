@@ -83,10 +83,10 @@ const submitForm = async () => {
 <template>
   <div class="text-textPrimary lg:p-8 lg:rounded-lg">
     <div
-      class="grid sm:grid-cols-2 items-start gap-16 mx-auto w-full bg-bgSecondary rounded-lg"
+      class="grid sm:grid-cols-2 items-start gap-12 lg:gap-16 mx-auto w-full bg-bgSecondary rounded-lg"
     >
       <div class="flex flex-col gap-4">
-        <div class="mb-8">
+        <div class="relative mb-4">
           <h2 class="flex items-center text-primaryColor">
             contact
             <p class="ml-3 text-textPrimary">me</p>
@@ -94,7 +94,6 @@ const submitForm = async () => {
           <div class="h-1 w-12 underline bg-primaryColor" />
         </div>
         <div>
-          <h1 class="text-2xl font-extrabold">Let's Talk</h1>
           <p class="text-textGray mt-2">
             Interested on hiring me for a project or want to work together on
             something? Feel free to reach out to me!
