@@ -98,7 +98,7 @@ onUnmounted(() => {
 </script>
 <template>
   <div
-    class="h-screen flex flex-col lg:flex-row w-full lg:justify-around overflow-x-hidden relative"
+    class="h-dvh flex flex-col lg:flex-row w-full lg:justify-around overflow-x-hidden relative"
   >
     <!-- Mobile Header (visible on small screens) -->
     <MobileHeader
@@ -136,6 +136,8 @@ onUnmounted(() => {
   overflow-x: hidden;
   overflow-y: hidden;
   width: 100vw;
-  height: 100%;
+  height: calc(100dvh - var(--header-height));
+  /* Fallback */
+  height: calc(100vh - var(--header-height));
 }
 </style>
