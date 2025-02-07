@@ -81,23 +81,25 @@ const submitForm = async () => {
 };
 </script>
 <template>
-  <div class="text-textPrimary">
-    <div class="mb-8">
-      <h2 class="flex items-center text-primaryColor">
-        contact
-        <p class="ml-3 text-textPrimary">me</p>
-      </h2>
-      <div class="h-1 w-12 underline bg-primaryColor" />
-    </div>
+  <div class="text-textPrimary glass-effect lg:p-8 lg:rounded-lg">
     <div
-      class="grid sm:grid-cols-2 items-start gap-16 mx-auto w-full bg-bgSecondary rounded-lg shadow-lg p-8"
+      class="grid sm:grid-cols-2 items-start gap-16 mx-auto w-full bg-bgSecondary rounded-lg"
     >
       <div class="flex flex-col gap-4">
-        <h1 class="text-3xl font-extrabold">Let's Talk</h1>
-        <p class="text-textGray mt-4">
-          Interested on hiring me for a project or want to work together on
-          something? Feel free to reach out to me!
-        </p>
+        <div class="mb-8">
+          <h2 class="flex items-center text-primaryColor">
+            contact
+            <p class="ml-3 text-textPrimary">me</p>
+          </h2>
+          <div class="h-1 w-12 underline bg-primaryColor" />
+        </div>
+        <div>
+          <h1 class="text-3xl font-extrabold">Let's Talk</h1>
+          <p class="text-textGray mt-2">
+            Interested on hiring me for a project or want to work together on
+            something? Feel free to reach out to me!
+          </p>
+        </div>
 
         <h1 class="text-3xl font-extrabold mt-8">Socials</h1>
 

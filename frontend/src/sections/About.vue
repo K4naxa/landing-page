@@ -53,21 +53,13 @@ const downloadCV = async () => {
 </script>
 <template>
   <!-- Hero Section Start -->
-  <div class="container flex md:flex-row flex-col items-center">
-    <div class="lg:w-1/3 md:order-1 lg:order-2 relative">
-      <!-- Gradient background elements -->
-      <div class="absolute inset-0 z-0 animate-hue-rotate">
-        <div
-          class="absolute top-1/2 left-1/2 w-[110%] h-[110%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(var(--tw-gradient-stops))] from-primaryColor via-transparent to-primaryColor opacity-30 blur-[100px] animate-hue-pulse"
-        ></div>
-        <div
-          class="absolute top-1/2 left-1/2 w-[120%] h-[120%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(var(--tw-gradient-stops))] from-transparent via-primaryColor to-transparent opacity-20 blur-[80px] animate-hue-pulse-2"
-        ></div>
-      </div>
-
+  <div
+    class="container flex w-full justify-center lg:flex-row flex-col items-center"
+  >
+    <div class="lg:w-1/3 lg:order-2 relative">
       <!-- Existing image container -->
       <div
-        class="flex mx-auto h-80 w-80 justify-center content-center rounded-full overflow-hidden relative z-10"
+        class="flex mx-auto aspect-square w-3/4 max-w-96 lg:w-80 justify-center content-center rounded-full overflow-hidden relative z-10 mb-8 lg:mb-0"
       >
         <img
           class="object-center object-cover h-full w-full inset-shadow-sm inset-shadow-primaryColor/50"
@@ -77,7 +69,7 @@ const downloadCV = async () => {
       </div>
     </div>
     <div
-      class="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left text-center content-center"
+      class="lg:flex-grow lg:w-1/2 flex flex-col lg:text-left text-center content-center"
     >
       <h1
         class="title-font sm:text-6xl leading-6 text-3xl mb-4 font-bold text-white"
@@ -98,7 +90,7 @@ const downloadCV = async () => {
         my skills and learn from others.
       </p>
 
-      <div class="flex gap-4 flex-wrap">
+      <div class="flex gap-4 flex-wrap w-full justify-center lg:justify-start">
         <button
           :disabled="cvLoading"
           @click="downloadCV"

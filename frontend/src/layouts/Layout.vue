@@ -1,5 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, defineProps, computed } from "vue";
+import MobileHeader from "../components/MobileHeader.vue";
+import DesktopHeader from "../components/DesktopHeader.vue";
 import { useSwipe } from "@vueuse/core";
 
 const props = defineProps({
@@ -40,7 +42,7 @@ const scrollToSection = (sectionId) => {
   const section = document.getElementById(sectionId);
   if (!section) return;
 
-  section.scrollIntoView({ behavior: "smooth" });
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
   activeSection.value = sectionId;
 };
 
@@ -95,82 +97,45 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <div class="flex h-screen w-screen overflow-x-hidden relative">
+  <div
+    class="h-screen flex flex-col lg:flex-row w-full lg:justify-around overflow-x-hidden relative"
+  >
     <!-- Mobile Header (visible on small screens) -->
-    <header
-      class="lg:hidden fixed top-0 left-0 right-0 z-50 transition-transform duration-300"
-      :class="[
-        isHeaderVisible ? 'translate-y-0' : '-translate-y-full',
-        'bg-backgroundColor/95 backdrop-blur-sm',
-      ]"
-    >
-      <!-- Mobile Navigation -->
-      <nav class="transition-all duration-300 h-24 fixed w-full">
-        <div class="px-4 py-2 grid grid-cols-4 gap-4 w-full">
-          <button
-            v-for="section in sections"
-            :key="section.id"
-            @click="scrollToSection(section.id)"
-            :class="[
-              'w-full text-textPrimary px-4 py-2 rounded transition-all text-center',
-              activeSection === section.id
-                ? 'bg-primaryColor'
-                : 'hover:bg-primaryColor/20',
-            ]"
-          >
-            {{ section.name }}
-          </button>
-        </div>
-      </nav>
-    </header>
+    <MobileHeader
+      v-if="isMobile"
+      :sections="sections"
+      :activeSection="activeSection"
+      @scrollToSection="scrollToSection"
+    />
 
     <!-- Desktop sidebar (hidden on small screens) -->
-    <div class="hidden lg:flex fixed left-8 w-64 h-screen z-50">
-      <!-- left side bar content -->
-      <div class="flex flex-col my-auto h-fit justify-center glass-effect p-4">
-        <!-- photo + name -->
-        <div class="flex flex-col items-center mb-8">
-          <div
-            class="flex h-3/4 w-3/4 mb-4 justify-center content-center rounded-full overflow-hidden relative z-10"
-          >
-            <img
-              class="object-center object-cover aspect-square"
-              alt="hero"
-              src="../assets/Hero.jpg"
-            />
-          </div>
-          <h2 class="text-white text-xl font-bold">Jami Hyvärinen</h2>
-          <p class="text-white text-sm">Fullstack Web Developer</p>
-        </div>
-
-        <!-- Nav buttons -->
-        <nav class="flex flex-col space-y-4">
-          <button
-            v-for="section in sections"
-            :key="section.id"
-            @click="scrollToSection(section.id)"
-            :class="[
-              'text-white px-4 py-2 rounded transition-all border border-transparent',
-              activeSection === section.id
-                ? 'bg-primaryColor'
-                : 'hover:bg-primaryColor hover:bg-opacity-20 hover:border-primaryColor',
-            ]"
-          >
-            {{ section.name }}
-          </button>
-        </nav>
-      </div>
-    </div>
+    <DesktopHeader
+      v-if="!isMobile"
+      :sections="sections"
+      :activeSection="activeSection"
+      @scrollToSection="scrollToSection"
+    />
 
     <!-- Main Content -->
     <div
       ref="swipeTarget"
-      class="mt-24 lg:mt-0 lg:ml-80 w-full overflow-x-hidden scrollbar-thin"
+      :class="
+        isMobile
+          ? 'swipe-container'
+          : 'overflow-x-hidden overflow-y-auto scrollbar-thin w-full'
+      "
     >
-      <div class="flex lg:flex-col">
-        <slot />
-      </div>
+      <slot />
     </div>
   </div>
 </template>
-<style scoped></style>
+<style scoped>
+.swipe-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100vw;
+  height: 100%;
+}
+</style>

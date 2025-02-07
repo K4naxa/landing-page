@@ -32,8 +32,9 @@ const handlePopState = (event) => {
 </script>
 
 <template>
-  <div class="mx-auto text-textPrimary">
-    <div>
+  <div class="mx-auto text-textPrimary scroll-m-16 lg:scroll-m-0">
+    <!-- Header -->
+    <div class="mb-8">
       <h2 class="flex items-center">
         My
         <p class="ml-3 text-primaryColor">Portfolio</p>
@@ -42,7 +43,7 @@ const handlePopState = (event) => {
     </div>
 
     <!-- Portfolio Items -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <div
         v-for="(item, index) in orderedItems"
         @click="openModal(item)"
