@@ -81,7 +81,7 @@ const submitForm = async () => {
 };
 </script>
 <template>
-  <div class="text-textPrimary glass-effect lg:p-8 lg:rounded-lg">
+  <div class="text-textPrimary lg:p-8 lg:rounded-lg">
     <div
       class="grid sm:grid-cols-2 items-start gap-16 mx-auto w-full bg-bgSecondary rounded-lg"
     >
@@ -94,14 +94,14 @@ const submitForm = async () => {
           <div class="h-1 w-12 underline bg-primaryColor" />
         </div>
         <div>
-          <h1 class="text-3xl font-extrabold">Let's Talk</h1>
+          <h1 class="text-2xl font-extrabold">Let's Talk</h1>
           <p class="text-textGray mt-2">
             Interested on hiring me for a project or want to work together on
             something? Feel free to reach out to me!
           </p>
         </div>
 
-        <h1 class="text-3xl font-extrabold mt-8">Socials</h1>
+        <h1 class="text-2xl font-extrabold mt-8">Socials</h1>
 
         <div class="flex flex-wrap gap-6">
           <a
@@ -115,34 +115,34 @@ const submitForm = async () => {
 
       <form
         @submit.prevent="submitForm()"
-        class="ml-auto space-y-4 max-w-lg mx-auto"
+        class="ml-auto space-y-4 max-w-lg mx-auto rounded-lg"
       >
         <input
           required
           v-model="formData.name"
           type="text"
           placeholder="Name"
-          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor"
+          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor glass-effect"
         />
         <input
           required
           v-model="formData.email"
           type="email"
           placeholder="Email"
-          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor"
+          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor glass-effect"
         />
         <input
           v-model="formData.subject"
           type="text"
           placeholder="Subject"
-          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor"
+          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor glass-effect"
         />
         <textarea
           required
           v-model="formData.message"
           placeholder="Message"
           rows="6"
-          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor"
+          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor glass-effect"
         ></textarea>
         <button
           type="submit"

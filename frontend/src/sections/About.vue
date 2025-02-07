@@ -94,12 +94,8 @@ const downloadCV = async () => {
         <button
           :disabled="cvLoading"
           @click="downloadCV"
-          class="rounded-md select-none cursor-pointer text-textPrimary px-4 py-2 active:scale-95 hover:text-bgPrimary transition-all duration-150"
-          :class="
-            cvLoading
-              ? 'bg-bgPrimary cursor-not-allowed'
-              : 'bg-primaryColor active:scale-95 '
-          "
+          class="rounded-md select-none cursor-pointer text-textPrimary px-4 py-2 shadow-lg shadow-transparent button-effects"
+          :class="cvLoading ? 'bg-bgPrimary cursor-not-allowed' : ''"
         >
           <p v-if="!cvLoading">CV</p>
           <div v-else role="status">
@@ -126,7 +122,7 @@ const downloadCV = async () => {
         <a
           href="https://github.com/K4naxa"
           target="_blank"
-          class="rounded-md flex gap-2 bg-primaryColor active:scale-95 border border-primaryColor text-textPrimary px-4 py-2 hover:text-bgPrimary transition-all duration-150"
+          class="rounded-md flex gap-2 text-textPrimary px-4 py-2 button-effects"
         >
           <img
             src="/src/assets/github-mark-white.png"
