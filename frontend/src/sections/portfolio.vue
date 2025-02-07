@@ -47,7 +47,7 @@ const handlePopState = (event) => {
       <div
         v-for="(item, index) in orderedItems"
         @click="openModal(item)"
-        class="p-4 bg-bgSecondary rounded-lg object-fill cursor-pointer hover:shadow-lg hover:backdrop-blur-md hover:bg-opacity-10 border border-bgPrimary hover:border-primaryColor hover:bg-primaryColor duration-150 transition-all"
+        class="p-4 bg-bgSecondary rounded-lg cursor-pointer duration-150 transition-all glass-effect hover:-translate-y-2 hover:shadow-lg hover:shadow-primaryColor"
         :key="index"
       >
         <img
