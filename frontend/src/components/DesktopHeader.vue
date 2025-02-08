@@ -14,13 +14,13 @@ const scrollToSection = (sectionId) => {
 };
 </script>
 <template>
-  <div class="hidden lg:flex w-96 h-screen z-50 mx-12">
+  <div class="hidden lg:flex w-96 h-screen z-50 justify-center">
     <!-- left side bar content -->
     <div
       class="flex flex-col my-auto h-fit justify-center glass-effect rounded-lg p-8"
     >
       <!-- photo + name -->
-      <div class="flex flex-col items-center mb-8">
+      <!-- <div class="flex flex-col items-center mb-8">
         <div
           class="flex h-3/4 w-3/4 mb-4 justify-center content-center rounded-full overflow-hidden relative z-10"
         >
@@ -32,7 +32,7 @@ const scrollToSection = (sectionId) => {
         </div>
         <h2 class="text-white text-xl font-bold">Jami Hyvärinen</h2>
         <p class="text-white text-sm">Fullstack Web Developer</p>
-      </div>
+      </div> -->
 
       <!-- Nav buttons -->
       <nav class="flex flex-col space-y-4">

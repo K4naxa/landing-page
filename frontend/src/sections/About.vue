@@ -59,10 +59,11 @@ const downloadCV = async () => {
     <div class="lg:w-1/3 lg:order-2 relative">
       <!-- Existing image container -->
       <div
-        class="flex mx-auto aspect-square w-3/4 max-w-96 lg:w-80 justify-center content-center rounded-full overflow-hidden relative z-10 mb-8 lg:mb-0"
+        class="flex mx-auto aspect-square w-3/4 max-w-96 lg:w-80 justify-center rounded-full overflow-hidden relative z-10 mb-8 lg:mb-0"
       >
         <img
-          class="object-center object-cover h-full w-full inset-shadow-sm inset-shadow-primaryColor/50"
+          class="object-cover h-full w-full inset-shadow-sm inset-shadow-primaryColor/50"
+          style="object-position: center -100px"
           alt="hero"
           src="../assets/Hero.jpg"
         />
