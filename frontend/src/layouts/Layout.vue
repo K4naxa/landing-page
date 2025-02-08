@@ -92,6 +92,27 @@ onMounted(() => {
       observer.observe(element);
     }
   });
+
+  // listen for scrollwheel event
+  window.addEventListener("wheel", (e) => {
+    // dont use for mobile
+    if (isMobile.value) return;
+
+    // check if projectModal is open
+    if (document.body.classList.contains("no-scroll")) return;
+
+    const currentIndex = sections.value.findIndex(
+      (section) => section.id === activeSection.value
+    );
+
+    if (e.deltaY > 0 && currentIndex < sections.value.length - 1) {
+      // Scroll down - next section
+      scrollToSection(sections.value[currentIndex + 1].id);
+    } else if (e.deltaY < 0 && currentIndex > 0) {
+      // Scroll up - previous section
+      scrollToSection(sections.value[currentIndex - 1].id);
+    }
+  });
 });
 
 onUnmounted(() => {
