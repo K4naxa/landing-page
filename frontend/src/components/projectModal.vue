@@ -1,26 +1,61 @@
 <script setup>
-import { computed, ref, defineProps, defineEmits } from "vue";
+import {
+  computed,
+  ref,
+  defineProps,
+  defineEmits,
+  onMounted,
+  onUnmounted,
+} from "vue";
 
 const props = defineProps({
   showModal: Boolean,
   selectedProject: Object,
+  clickPosition: Object,
 });
 
 const showModal = computed(() => props.showModal);
 const selectedProject = computed(() => props.selectedProject);
+const isAnimating = ref(true);
 
 const emits = defineEmits(["closeModal"]);
 const closeModal = () => {
-  emits("closeModal");
+  isAnimating.value = true;
+  setTimeout(() => {
+    emits("closeModal");
+  }, 300);
+};
+
+onMounted(() => {
+  window.addEventListener("popstate", handlePopState);
+  setTimeout(() => {
+    isAnimating.value = false;
+  }, 50);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("popstate", handlePopState);
+});
+
+const handlePopState = (event) => {
+  if (showModal) {
+    closeModal();
+  }
 };
 </script>
 <template>
   <div
+    id="projectModal"
     class="fixed inset-0 bg-black bg-opacity-50 flex items-center backdrop-blur-sm justify-center text-textPrimary z-50"
     @click.self="closeModal"
   >
     <div
-      class="bg-black/ rounded-lg lg:max-w-4xl flex flex-col w-full h-full lg:h-fit px-4 py-8 relative lg:max-h-[90vh] overflow-auto scrollbar-thin bg-black/90 border border-gray-400 border-opacity-50"
+      class="modal-content bg-black/90 rounded-lg lg:max-w-4xl flex flex-col w-full h-full lg:h-fit px-4 py-8 relative lg:max-h-[90vh] overflow-auto scrollbar-thin lg:border border-gray-400 border-opacity-50"
+      :style="{
+        '--click-x': clickPosition.x + 'px',
+        '--click-y': clickPosition.y + 'px',
+      }"
+      :class="{ 'modal-entering': isAnimating }"
     >
       <button
         @click="closeModal"
@@ -43,10 +78,18 @@ const closeModal = () => {
       </button>
 
       <img
+        v-if="selectedProject.image"
         class="object-cover object-center mx-auto rounded-lg h-64 mb-6"
         :src="selectedProject.image"
         alt="project image"
       />
+      <span v-else>
+        <div
+          class="object-contain flex items-center justify-center object-center h-32 mx-auto button-effects rounded-lg mb-6"
+        >
+          Coming soon...
+        </div>
+      </span>
 
       <div class="mb-6">
         <h2>
@@ -101,7 +144,7 @@ const closeModal = () => {
           :href="selectedProject.documentation"
           target="_blank"
           rel="noopener noreferrer"
-          class="rounded-md flex gap-2 border border-primaryColor text-textPrimary px-4 py-2 hover:bg-primaryColor hover:text-bgPrimary transition-colors duration-150"
+          class="rounded-md flex gap-2 px-4 py-2 hover:bg-primaryColor button-effects"
           :class="{
             'opacity-30 cursor-not-allowed pointer-events-none':
               !selectedProject.documentation,
@@ -112,7 +155,7 @@ const closeModal = () => {
         <a
           :href="selectedProject.github"
           target="_blank"
-          class="rounded-md flex gap-2 border border-primaryColor text-textPrimary px-4 py-2 hover:bg-primaryColor hover:text-bgPrimary transition-colors duration-150"
+          class="rounded-md flex gap-2 px-4 py-2 hover:bg-primaryColor button-effects"
           :class="{
             'opacity-30 cursor-not-allowed pointer-events-none':
               !selectedProject.github,
@@ -129,7 +172,7 @@ const closeModal = () => {
           :href="selectedProject.demo"
           target="_blank"
           rel="noopener noreferrer"
-          class="rounded-md flex gap-2 border bg-primaryColor border-primaryColor text-white px-4 py-2 hover:text-bgPrimary transition-colors duration-150"
+          class="rounded-md flex gap-2 px-4 py-2 hover:bg-primaryColor button-effects"
           :class="{
             'opacity-30 cursor-not-allowed pointer-events-none':
               !selectedProject.demo,
@@ -141,3 +184,21 @@ const closeModal = () => {
     </div>
   </div>
 </template>
+<style scoped>
+.modal-content {
+  transform-origin: var(--click-x) var(--click-y);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+.modal-entering {
+  transform: scale(0.3);
+  opacity: 0;
+}
+
+.modal-content:not(.modal-entering) {
+  transform: scale(1);
+  opacity: 1;
+}
+</style>

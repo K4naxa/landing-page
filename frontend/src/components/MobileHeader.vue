@@ -15,7 +15,7 @@ const scrollToSection = (sectionId) => {
 </script>
 <template>
   <header
-    class="lg:hidden transition-transform flex items-center duration-300 glass-effect h-[--header-height]"
+    class="lg:hidden transition-transform flex items-center duration-300 border-b border-gray-300/20 bg-gray-700/20 backdrop-blur-lg h-[--header-height]"
   >
     <!-- Mobile Navigation -->
 

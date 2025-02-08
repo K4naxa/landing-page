@@ -54,3 +54,18 @@ h2 {
 .button-effects {
   @apply transition-all duration-150 glass-effect hover:bg-primaryColor/50 active:scale-95;
 }
+
+.modal-backdrop-enter-active,
+.modal-backdrop-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop-enter-from,
+.modal-backdrop-leave-to {
+  opacity: 0;
+}
+
+.modal-backdrop-enter-to,
+.modal-backdrop-leave-from {
+  opacity: 1;
+}

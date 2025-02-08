@@ -20,6 +20,9 @@ const { direction, lengthX } = useSwipe(swipeTarget, {
   onSwipeEnd(e) {
     if (!isMobile.value) return;
 
+    // check if projectModal is open
+    if (document.body.classList.contains("no-scroll")) return;
+
     const currentIndex = sections.value.findIndex(
       (section) => section.id === activeSection.value
     );
