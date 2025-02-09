@@ -106,7 +106,7 @@ const submitForm = async () => {
           <a
             href="https://www.linkedin.com/in/jami-hyvärinen-1aa237295"
             target="_blank"
-            class="rounded-md text-textPrimary px-4 py-2 hover:bg-primaryColor bg-primaryColor active:scale-95 hover:text-bgPrimary transition-all duration-150"
+            class="rounded-md text-textPrimary px-4 py-2 active:scale-95 button-effects"
             >Linkedin</a
           >
         </div>
