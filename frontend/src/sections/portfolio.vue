@@ -64,9 +64,9 @@ const closeModal = () => {
         />
         <div
           v-else
-          class="object-contain flex items-center justify-center object-center h-36 mx-auto rounded-lg w-full mb-4 font-semibold text-lg text-primaryColor text-opacity-50"
+          class="object-contain flex items-center justify-center object-center h-36 mx-auto rounded-lg w-full mb-4"
         >
-          Coming soon...
+          Coming soon
         </div>
 
         <div>
@@ -77,7 +77,7 @@ const closeModal = () => {
             <div
               v-for="(tech, i) in item.stack"
               :key="i"
-              class="bg-primaryColor px-3 py-1 rounded-full text-xs"
+              class="px-3 py-1 rounded-full text-xs glass-effect bg-primaryColor/10"
             >
               {{ tech }}
             </div>

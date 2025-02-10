@@ -149,7 +149,7 @@ const submitForm = async () => {
           class="text-white hover:text-bgPrimary border duration-150 border-primaryColor tracking-wide rounded-md text-sm px-4 py-3 w-full mt-6"
           :class="
             formLoading
-              ? 'bg-bgPrimary cursor-not-allowed'
+              ? 'bg-bgPrimary/50 cursor-not-allowed'
               : 'bg-primaryColor active:scale-95 '
           "
         >
