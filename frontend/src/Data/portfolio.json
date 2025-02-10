@@ -45,7 +45,7 @@
       "stack": ["Wordpress", "Elementor", "WooCommerce"],
       "github": "",
       "documentation": "https://github.com/K4naxa/mahdollisuuksienkirppis_documents",
-      "demo": "https://www.mahdollisuuksienkirppis.fi/"
+      "live": "https://www.mahdollisuuksienkirppis.fi/"
     },
 
     {
@@ -70,7 +70,7 @@
       "stack": ["Wordpress", "Elementor", "WooCommerce", "Polylang"],
       "github": "",
       "documentation": "",
-      "demo": "https://www.barrocos.net/"
+      "live": "https://www.barrocos.net/"
     },
 
     {

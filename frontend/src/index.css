@@ -52,7 +52,7 @@ h2 {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 .button-effects {
-  @apply transition-all duration-150 glass-effect hover:bg-primaryColor/50 active:scale-95;
+  @apply transition-all duration-150 glass-effect hover:bg-primaryColor/50 active:scale-95 select-none;
 }
 
 .modal-backdrop-enter-active,

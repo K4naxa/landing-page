@@ -103,7 +103,7 @@ const handlePopState = (event) => {
         <div
           v-for="(tech, i) in selectedProject.stack"
           :key="i"
-          class="bg-primaryColor px-3 py-1 rounded-full text-xs"
+          class="bg-primaryColor px-3 py-1 rounded-full text-xs glass-effect select-none"
         >
           {{ tech }}
         </div>
@@ -169,16 +169,30 @@ const handlePopState = (event) => {
           Github
         </a>
         <a
+          v-if="selectedProject.demo"
           :href="selectedProject.demo"
           target="_blank"
           rel="noopener noreferrer"
-          class="rounded-md flex gap-2 px-4 py-2 hover:bg-primaryColor button-effects"
+          class="rounded-md flex gap-2 px-4 py-2 hover:bg-primaryColor bg-primaryColor select-none hover:bg-opacity-80"
           :class="{
             'opacity-30 cursor-not-allowed pointer-events-none':
               !selectedProject.demo,
           }"
         >
           Demo
+        </a>
+        <a
+          v-if="selectedProject.live"
+          :href="selectedProject.live"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-md flex gap-2 px-4 py-2 hover:bg-primaryColor bg-primaryColor select-none hover:bg-opacity-80"
+          :class="{
+            'opacity-30 cursor-not-allowed pointer-events-none':
+              !selectedProject.live,
+          }"
+        >
+          Live site
         </a>
       </div>
     </div>
