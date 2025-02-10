@@ -29,25 +29,25 @@ onMounted(() => {
     <!-- Pass in a helper class for mobile to disable outer vertical scroll -->
     <Layout :isMobile="isMobile" class="">
       <section id="about" class="section">
-        <div class="lg:mx-8 mx-auto">
+        <div class="lg:mx-8">
           <About />
         </div>
       </section>
 
       <section id="education" class="section">
-        <div class="section-content w-screen lg:w-full lg:mx-8">
+        <div class="section-content lg:mx-8">
           <EducationTimeline />
         </div>
       </section>
 
       <section id="portfolio" class="section">
-        <div class="section-content w-screen lg:w-full lg:mx-8">
+        <div class="section-content lg:mx-8">
           <Portfolio />
         </div>
       </section>
 
       <section id="contact" class="section">
-        <div class="section-content w-screen lg:w-full lg:mx-8">
+        <div class="section-content lg:mx-8">
           <Contact />
         </div>
       </section>
@@ -80,7 +80,6 @@ onMounted(() => {
     min-height: 100vh;
     width: auto; /* Let the container decide */
     align-items: center;
-    @apply mx-8;
   }
 }
 
