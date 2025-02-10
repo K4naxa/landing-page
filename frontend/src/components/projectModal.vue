@@ -85,7 +85,7 @@ const handlePopState = (event) => {
       />
       <span v-else>
         <div
-          class="object-contain flex items-center justify-center object-center h-32 mx-auto button-effects rounded-lg mb-6"
+          class="object-contain flex items-center justify-center object-center h-32 mx-auto glass-effect rounded-lg mb-6 max-w-96"
         >
           Coming soon...
         </div>
