@@ -39,16 +39,6 @@ A personal landing page built with Vue 3, designed to showcase my skills, projec
 *   [Python](https://www.python.org/)
 *   [ReCaptcha V3](https://developers.google.com/recaptcha/): Free service that protects your site from spam and abuse.
 
-## Setup
-
-### Prerequisites
-
-*   [Node.js](https://nodejs.org/) (v16 or higher)
-*   [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-*   [Python 3.7+](https://www.python.org/downloads/)
-*   [pip](https://pypi.org/project/pip/)
-
-
 ## Security
 
 This project implements reCAPTCHA v3 to protect against spam and abuse.
