@@ -12,11 +12,19 @@ const orderedItems = computed(() => [...educationData.items].reverse());
  */
 const _formatItemDate = (item) => {
   const period = item.period;
-  const from = new Date(period[0]).toLocaleDateString("en-US", {
+
+  // Ensure a proper date format (YYYY-MM) to work on firefox
+  const formatToISO = (dateString) => {
+    const [year, month] = dateString.split("/");
+    return new Date(`${year}-${month.padStart(2, "0")}-01`);
+  };
+
+  const from = formatToISO(period[0]).toLocaleDateString("en-US", {
     month: "2-digit",
     year: "numeric",
   });
-  const to = new Date(period[1]).toLocaleDateString("en-US", {
+
+  const to = formatToISO(period[1]).toLocaleDateString("en-US", {
     month: "2-digit",
     year: "numeric",
   });
