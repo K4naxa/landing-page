@@ -53,7 +53,7 @@ const closeModal = () => {
       <div
         v-for="(item, index) in orderedItems"
         @click="(event) => openModal(item, event)"
-        class="p-4 bg-bgSecondary rounded-lg cursor-pointer duration-150 transition-all glass-effect hover:-translate-y-2 hover:shadow-lg hover:bg-primaryColor/15 hover:shadow-primaryColor/30"
+        class="p-4 bg-bgSecondary rounded-lg cursor-pointer duration-150 transition-all glass-effect lg:hover:-translate-y-2 lg:hover:shadow-lg lg:hover:bg-primaryColor/15 lg:hover:shadow-primaryColor/30"
         :key="index"
       >
         <img

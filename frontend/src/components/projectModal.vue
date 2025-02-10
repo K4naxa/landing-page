@@ -201,13 +201,13 @@ const handlePopState = (event) => {
 <style scoped>
 .modal-content {
   transform-origin: var(--click-x) var(--click-y);
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
 }
 
 .modal-entering {
-  transform: scale(0.3);
+  transform: scale(0.6);
   opacity: 0;
 }
 
