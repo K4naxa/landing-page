@@ -81,7 +81,7 @@ const submitForm = async () => {
 };
 </script>
 <template>
-  <div class="text-textPrimary lg:p-8 lg:rounded-lg">
+  <div class="text-textPrimary lg:rounded-lg">
     <div
       class="grid sm:grid-cols-2 items-start gap-12 lg:gap-16 mx-auto w-full bg-bgSecondary rounded-lg"
     >

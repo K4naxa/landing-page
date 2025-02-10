@@ -47,7 +47,9 @@ onMounted(() => {
       </section>
 
       <section id="contact" class="section">
-        <Contact />
+        <div class="section-content w-screen lg:w-full lg:mx-8">
+          <Contact />
+        </div>
       </section>
     </Layout>
   </div>
