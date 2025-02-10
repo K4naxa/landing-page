@@ -1,43 +1,168 @@
 <script setup>
-import NavLink from "../components/NavLink.vue";
+import { ref, onMounted, onUnmounted, defineProps, computed } from "vue";
+import MobileHeader from "../components/MobileHeader.vue";
+import DesktopHeader from "../components/DesktopHeader.vue";
+import { useSwipe } from "@vueuse/core";
+
+const props = defineProps({
+  isMobile: Boolean,
+});
+
+const sections = ref([]);
+const activeSection = ref(null);
+const isHeaderVisible = ref(true);
+const isMobile = computed(() => props.isMobile);
+let observer = null;
+
+const swipeTarget = ref(null);
+const { direction, lengthX } = useSwipe(swipeTarget, {
+  threshold: 50, // minimum distance for a swipe
+  onSwipeEnd(e) {
+    if (!isMobile.value) return;
+
+    // check if projectModal is open
+    if (document.body.classList.contains("no-scroll")) return;
+
+    const currentIndex = sections.value.findIndex(
+      (section) => section.id === activeSection.value
+    );
+
+    if (direction.value === "right" && currentIndex > 0) {
+      // Swipe right - previous section
+      scrollToSection(sections.value[currentIndex - 1].id);
+    } else if (
+      direction.value === "left" &&
+      currentIndex < sections.value.length - 1
+    ) {
+      // Swipe left - next section
+      scrollToSection(sections.value[currentIndex + 1].id);
+    }
+  },
+});
+
+// Smooth scroll to section when clicking navigation
+const scrollToSection = (sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (!section) return;
+
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  section.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+// Mobile functionalities
+
+onMounted(() => {
+  // Initialize sections
+  sections.value = Array.from(document.querySelectorAll("section")).map(
+    (section) => ({
+      id: section.id,
+      height: section.offsetHeight,
+      name: section.id.charAt(0).toUpperCase() + section.id.slice(1),
+    })
+  );
+
+  // Set initial active section
+  activeSection.value = sections.value[0]?.id;
+
+  // Initialize Intersection Observer
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // entry.target.classList.add("section-visible");
+          if (entry.intersectionRatio >= 0.5) {
+            activeSection.value = entry.target.id;
+          }
+        } else {
+          entry.target.classList.remove("section-visible");
+        }
+      });
+    },
+    {
+      threshold: [0, 0.5, 1],
+      rootMargin: "0px",
+    }
+  );
+
+  // Observe all sections
+  sections.value.forEach((section) => {
+    const element = document.getElementById(section.id);
+    if (element) {
+      observer.observe(element);
+    }
+  });
+
+  // listen for scrollwheel event
+  window.addEventListener("wheel", (e) => {
+    // dont use for mobile
+    if (isMobile.value) return;
+
+    // check if projectModal is open
+    if (document.body.classList.contains("no-scroll")) return;
+
+    const currentIndex = sections.value.findIndex(
+      (section) => section.id === activeSection.value
+    );
+
+    if (e.deltaY > 0 && currentIndex < sections.value.length - 1) {
+      // Scroll down - next section
+      scrollToSection(sections.value[currentIndex + 1].id);
+    } else if (e.deltaY < 0 && currentIndex > 0) {
+      // Scroll up - previous section
+      scrollToSection(sections.value[currentIndex - 1].id);
+    }
+  });
+});
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect();
+  }
+});
 </script>
 <template>
-  <nav
-    class="hidden md:flex flex-wrap items-center justify-between p-5 bg-secondary-500 static top-0 w-full z-50"
+  <div
+    class="h-dvh flex flex-col lg:flex-row w-full lg:justify-around overflow-x-hidden relative"
   >
-    <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-      <span class="ml-3 text-xl">My Resume</span>
-    </a>
+    <!-- Mobile Header (visible on small screens) -->
+    <MobileHeader
+      v-if="isMobile"
+      :sections="sections"
+      :activeSection="activeSection"
+      @scrollToSection="scrollToSection"
+    />
 
-    <div :class="[' w-autoflex text-right text-bold mt-5']">
-      <NavLink to="#about">About</NavLink>
-      <NavLink to="#education">Education</NavLink>
-      <NavLink to="#portfolio">Portfolio</NavLink>
+    <!-- Desktop sidebar (hidden on small screens) -->
+    <DesktopHeader
+      v-if="!isMobile"
+      :sections="sections"
+      :activeSection="activeSection"
+      @scrollToSection="scrollToSection"
+    />
+
+    <!-- Main Content -->
+    <div
+      ref="swipeTarget"
+      :class="
+        isMobile
+          ? 'swipe-container'
+          : 'overflow-x-hidden overflow-y-auto scrollbar-thin w-full'
+      "
+    >
+      <slot />
     </div>
-
-    <a
-      href="#contact"
-      class="w-full md:w-auto px-4 py-2 text-right bg-primaryColor hover:text-bgPrimary active:scale-95 duration-75 transition-all hover:text-primary-500 text-white md:rounded"
-    >
-      Contact
-    </a>
-  </nav>
-
-  <!-- Mobile nav menu -->
-  <nav
-    class="md:hidden flex items-center justify-around h-16 fixed top-0 w-full z-50 rounded-t-md bg-bgSecondary border-b-2 shadow-md border-primaryColor text-sm"
-  >
-    <NavLink to="#about">About</NavLink>
-    <NavLink to="#education">Education</NavLink>
-    <NavLink to="#portfolio">Portfolio</NavLink>
-    <a
-      href="#contact"
-      class="w-24 md:w-auto px-4 py-2 text-center bg-primaryColor rounded-md text-white md:rounded"
-    >
-      Hire me
-    </a>
-  </nav>
-  <div class="px-4 max-w-[1380px] mx-auto mt-16 lg:mt-0">
-    <slot />
   </div>
 </template>
+<style scoped>
+.swipe-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100vw;
+  height: calc(100dvh - var(--header-height));
+  /* Fallback */
+  height: calc(100vh - var(--header-height));
+}
+</style>

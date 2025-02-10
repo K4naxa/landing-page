@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --color-bg-primary: 34 38 42;
-    --color-bg-secondary: 27 30 34;
+    --color-bg-secondary: 200 200 200 1;
     --color-bg-linear: 27 30 34;
     --color-text-primary: 255 255 255;
     --color-test-gray: 156 163 175;
@@ -13,6 +13,8 @@
     --color-primary2: 230 0 69;
 
     --color-secondary: 40 0 230;
+
+    --header-height: 4rem;
   }
 }
 
@@ -27,25 +29,43 @@ h2 {
   overflow: hidden;
 }
 
-.primaryLinear {
-  background: linear-gradient(
-    90deg,
-    rgba(var(--color-bg-linear), 1) 0%,
-    rgba(var(--color-bg-secondary), 1) 100%
-  );
-}
-
 .scrollbar-thin::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: rgb(230 0 69);
+  background-color: rgba(230, 0, 69, 0.7);
   border-radius: 9999px; /* Full rounded corners */
 }
 
 .scrollbar-thin::-webkit-scrollbar-track {
-  background-color: rgb(27 30 34);
+  background-color: rgba(27, 30, 34, 0);
   border-radius: 9999px; /* Full rounded corners */
+}
+
+.glass-effect {
+  background: rgba(50, 50, 50, 0.2);
+  backdrop-filter: blur(16px);
+  /* border-radius: 16px; */
+  border: 1px solid rgba(200, 200, 200, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.button-effects {
+  @apply transition-all duration-150 glass-effect hover:bg-primaryColor/50 active:scale-95;
+}
+
+.modal-backdrop-enter-active,
+.modal-backdrop-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop-enter-from,
+.modal-backdrop-leave-to {
+  opacity: 0;
+}
+
+.modal-backdrop-enter-to,
+.modal-backdrop-leave-from {
+  opacity: 1;
 }

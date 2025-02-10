@@ -81,34 +81,32 @@ const submitForm = async () => {
 };
 </script>
 <template>
-  <section
-    id="contact"
-    class="py-8 mx-auto text-textPrimary scroll-m-16 lg:scroll-m-0"
-  >
-    <div class="mb-8">
-      <h2 class="flex items-center text-primaryColor">
-        contact
-        <p class="ml-3 text-textPrimary">me</p>
-      </h2>
-      <div class="h-1 w-12 underline bg-primaryColor" />
-    </div>
+  <div class="text-textPrimary lg:p-8 lg:rounded-lg">
     <div
-      class="grid sm:grid-cols-2 items-start gap-16 mx-auto w-full bg-bgSecondary rounded-lg shadow-lg p-8"
+      class="grid sm:grid-cols-2 items-start gap-12 lg:gap-16 mx-auto w-full bg-bgSecondary rounded-lg"
     >
       <div class="flex flex-col gap-4">
-        <h1 class="text-3xl font-extrabold">Let's Talk</h1>
-        <p class="text-textGray mt-4">
-          Interested on hiring me for a project or want to work together on
-          something? Feel free to reach out to me!
-        </p>
+        <div class="relative mb-4">
+          <h2 class="flex items-center text-primaryColor">
+            contact
+            <p class="ml-3 text-textPrimary">me</p>
+          </h2>
+          <div class="h-1 w-12 underline bg-primaryColor" />
+        </div>
+        <div>
+          <p class="text-textGray mt-2">
+            Interested on hiring me for a project or want to work together on
+            something? Feel free to reach out to me!
+          </p>
+        </div>
 
-        <h1 class="text-3xl font-extrabold mt-8">Socials</h1>
+        <h1 class="text-2xl font-extrabold mt-8">Socials</h1>
 
         <div class="flex flex-wrap gap-6">
           <a
             href="https://www.linkedin.com/in/jami-hyvärinen-1aa237295"
             target="_blank"
-            class="rounded-md text-textPrimary px-4 py-2 hover:bg-primaryColor bg-primaryColor active:scale-95 hover:text-bgPrimary transition-all duration-150"
+            class="rounded-md text-textPrimary px-4 py-2 active:scale-95 button-effects"
             >Linkedin</a
           >
         </div>
@@ -116,34 +114,34 @@ const submitForm = async () => {
 
       <form
         @submit.prevent="submitForm()"
-        class="ml-auto space-y-4 max-w-lg mx-auto"
+        class="ml-auto space-y-4 max-w-lg mx-auto rounded-lg"
       >
         <input
           required
           v-model="formData.name"
           type="text"
           placeholder="Name"
-          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor"
+          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor glass-effect"
         />
         <input
           required
           v-model="formData.email"
           type="email"
           placeholder="Email"
-          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor"
+          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor glass-effect"
         />
         <input
           v-model="formData.subject"
           type="text"
           placeholder="Subject"
-          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor"
+          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor glass-effect"
         />
         <textarea
           required
           v-model="formData.message"
           placeholder="Message"
           rows="6"
-          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor"
+          class="w-full rounded-md py-3 px-4 bg-bgPrimary text-sm focus:outline-none border border-bgPrimary focus:border-primaryColor glass-effect"
         ></textarea>
         <button
           type="submit"
@@ -151,7 +149,7 @@ const submitForm = async () => {
           class="text-white hover:text-bgPrimary border duration-150 border-primaryColor tracking-wide rounded-md text-sm px-4 py-3 w-full mt-6"
           :class="
             formLoading
-              ? 'bg-bgPrimary cursor-not-allowed'
+              ? 'bg-bgPrimary/50 cursor-not-allowed'
               : 'bg-primaryColor active:scale-95 '
           "
         >
@@ -178,5 +176,5 @@ const submitForm = async () => {
         </button>
       </form>
     </div>
-  </section>
+  </div>
 </template>
