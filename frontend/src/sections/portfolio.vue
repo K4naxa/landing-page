@@ -70,7 +70,7 @@ const closeModal = () => {
         </div>
 
         <div>
-          <h3 class="text-lg mb-2 uppercase text-center">
+          <h3 class="text-lg mb-4 uppercase text-center">
             {{ item.title }}
           </h3>
           <div class="flex items-center flex-wrap w-full gap-2">
