@@ -72,6 +72,31 @@
       "documentation": "",
       "live": "https://www.barrocos.net/"
     },
+    {
+      "id": "landing-page",
+      "created": ["2025/2"],
+      "image": "/projectImages/landing-page-favi.png",
+      "title": "Personal Landing Page",
+      "description": "A personal landing page built with Vue 3, designed to showcase my skills, projects, and experience as a full-stack web developer. This site serves as a central hub for potential clients and employers to learn about my capabilities and get in touch. Security is a priority, with reCAPTCHA v3 integrated into the contact form and CV download process to prevent spam and abuse as well as keep my personal information safe.",
+      "key_features": [
+        "Responsive design for optimal viewing on all devices.",
+        "Interactive sections for showcasing projects, skills, and experience.",
+        "Contact form with reCAPTCHA v3 integration for secure communication.",
+        "CV download feature protected by reCAPTCHA v3 to prevent automated downloads."
+      ],
+      "technical_highlights": [
+        "Frontend developed with Vue 3 and styled with Tailwind CSS for a modern and responsive design.",
+        "Implements reCAPTCHA v3 on the contact form and CV download to ensure security and prevent spam.",
+        "Uses Vue3-Toastify for user feedback.",
+        "Uses Axios for API calls.",
+        "Mobile swipe navigation for easy browsing on touch devices.",
+        "Mobile swipe backwards closes the current open modal."
+      ],
+      "stack": ["Vue3", "TailwindCSS", "FastAPI"],
+      "github": "https://github.com/K4naxa/landing-page",
+      "documentation": "",
+      "demo": ""
+    },
 
     {
       "id": "ohjaamon-ajanvarausjarjestelma",
