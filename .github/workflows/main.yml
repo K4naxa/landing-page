@@ -31,5 +31,4 @@ jobs:
         push: true
         tags: |
           ${{ secrets.DOCKERHUB_USERNAME }}/landing-page-${{ matrix.services }}:latest
-          ${{ secrets.DOCKERHUB_USERNAME }}/landing-page-${{ matrix.services }}:${{ github.sha }}
-        platforms: linux/arm64,linux/amd64
+        platforms: linux/arm64
