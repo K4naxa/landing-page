@@ -26,9 +26,7 @@ const scrollToSection = (sectionId) => {
         @click="scrollToSection(section.id)"
         :class="[
           'w-full text-textPrimary py-2 rounded transition-all text-center',
-          activeSection === section.id
-            ? 'bg-primaryColor'
-            : 'hover:bg-primaryColor/20',
+          activeSection === section.id ? 'bg-primaryColor' : '',
         ]"
       >
         {{ section.name }}
