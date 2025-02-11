@@ -150,9 +150,10 @@ onUnmounted(() => {
           : 'overflow-x-hidden overflow-y-auto scrollbar-thin w-full flex-grow'
       "
     >
+      "
       <div
         class="max-w-[1600px] mx-auto"
-        :class="isMobile ? 'swipe-container' : ''"
+        :class="isMobile ? 'flex overflow-hidden' : ''"
       >
         <slot />
       </div>
