@@ -80,15 +80,21 @@ const downloadCV = async () => {
       <h3 class="title-font sm:text-3xl text-xl mb-4 font-bold text-white">
         Fullstack Web Developer
       </h3>
-      <p class="mb-2 leading-relaxed text-slate-200">
-        Motivated and passionate Full-Stack Developer with a strong enthusiasm
-        for coding and problem-solving. I excel in tacklig challenges, learning
-        new skills, and pushing my abilities with exciting projects
+      <p class="mb-8 leading-relaxed text-slate-200">
+        Passionate Full-Stack Developer driven by a love for creating engaging
+        user experiences and solving complex problems. I excel in tackling
+        technical challenges with enthusiasm and creativity.
       </p>
 
       <p class="mb-8 leading-relaxed text-slate-200">
-        Looking for opportunities to work with a team of developers to improve
-        my skills and learn from others.
+        My strong coding skills are matched by my eagerness to learn and grow.
+        I'm motivated by innovative projects that stretch my abilities and allow
+        me to contribute meaningfully to impactful solutions.
+      </p>
+      <p class="mb-8 leading-relaxed text-slate-200">
+        Looking for opportunities to collaborate with talented teams where I can
+        both share my expertise and learn from others, ultimately improving my
+        skills while creating exceptional digital experiences.
       </p>
 
       <div class="flex gap-4 flex-wrap w-full justify-center lg:justify-start">

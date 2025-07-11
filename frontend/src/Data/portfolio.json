@@ -99,27 +99,30 @@
     },
 
     {
-      "id": "ohjaamon-ajanvarausjarjestelma",
-      "created": ["2025/2"],
-      "image": "",
-      "title": "Varauskalenteri",
-      "description": "A web-based booking system designed for managing classroom computer reservations. Teachers can dynamically create and manage classrooms, while students can book computers for specific time slots. The system includes a calendar view for teachers to monitor bookings and ensure efficient resource allocation. Built with a 0€ budget, the application leverages modern technologies to deliver a seamless user experience.",
+      "id": "worksheet-tracker",
+      "created": ["2025/07"],
+      "image": "https://github.com/K4naxa/worksheet/blob/main/Other/applicationLogo.png?raw=true",
+      "title": "Työpäiväkirja (Internship Tracker)",
+      "description": "A full-stack web application designed to help students track their daily activities, learnings, and progress during their internships. Built with a modern tech stack, it offers a seamless, responsive, and installable PWA experience for a native-app feel.",
       "key_features": [
-        "Dynamic classroom creation and management with classroom creator.",
-        "Real-time booking system for students.",
-        "Calendar view for teachers to monitor reservations.",
-        "Real-time updates using Pusher for instant notifications."
+        "Daily Logging: Easily add, view, and edit daily entries for work activities and learnings.",
+        "Interactive Calendar: A visual, monthly overview of your workdays.",
+        "Statistical Analysis: Automatically calculates total hours, workdays, and other key metrics.",
+        "Secure Authentication: Robust user management and authentication powered by Keycloak.",
+        "Progressive Web App (PWA): Installable on mobile and desktop for a native-app feel and offline access.",
+        "Data Export: Export your entire work log to an Excel (.xlsx) file for official reporting."
       ],
       "technical_highlights": [
-        "Frontend developed with Vue3 for a reactive and interactive interface.",
-        "Backend powered by Laravel for robust API handling.",
-        "Real-time functionality enabled by Pusher.",
-        "Data stored in a mySQL database for reliability."
+        "Full-stack application built with Next.js (App Router) and NestJS.",
+        "Secure user authentication and management handled by Keycloak and NextAuth.js.",
+        "Data stored in a PostgreSQL database.",
+        "Designed as an installable Progressive Web App (PWA) for offline access and a native-like experience.",
+        "Deployed using Docker and Docker Compose for consistency across environments."
       ],
-      "stack": ["Vue3", "TailwindCSS", "Laravel", "Pusher", "mySQL"],
-      "github": "",
+      "stack": ["Next.js", "React", "TailwindCSS", "NestJS", "Keycloak", "PostgreSQL", "Docker"],
+      "github": "https://github.com/K4naxa/worksheet",
       "documentation": "",
-      "demo": ""
+      "demo": "https://worksheet.pohjosenpaja.fi"
     }
   ]
 }
