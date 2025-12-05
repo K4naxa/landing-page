@@ -30,11 +30,7 @@ const submitForm = async () => {
   formLoading.value = true;
 
   // Validate form fields
-  if (
-    !formData.value.name ||
-    !formData.value.email ||
-    !formData.value.message
-  ) {
+  if (!formData.value.name || !formData.value.email || !formData.value.message) {
     fireToast("Please fill out all required fields.", "error");
     formLoading.value = false;
     return;
@@ -82,9 +78,7 @@ const submitForm = async () => {
 </script>
 <template>
   <div class="text-textPrimary lg:rounded-lg">
-    <div
-      class="grid sm:grid-cols-2 items-start gap-12 lg:gap-16 mx-auto w-full bg-bgSecondary rounded-lg"
-    >
+    <div class="grid sm:grid-cols-2 items-start gap-12 lg:gap-16 mx-auto w-full bg-bgSecondary rounded-lg">
       <div class="flex flex-col gap-4">
         <div class="relative mb-4">
           <h2 class="flex items-center text-primaryColor">
@@ -95,8 +89,8 @@ const submitForm = async () => {
         </div>
         <div>
           <p class="text-textGray mt-2">
-            Interested on hiring me for a project or want to work together on
-            something? Feel free to reach out to me!
+            Interested on hiring me for a project or want to work together on something? <br />
+            Feel free to reach out to me!
           </p>
         </div>
 
@@ -112,10 +106,7 @@ const submitForm = async () => {
         </div>
       </div>
 
-      <form
-        @submit.prevent="submitForm()"
-        class="ml-auto space-y-4 max-w-lg mx-auto rounded-lg"
-      >
+      <form @submit.prevent="submitForm()" class="ml-auto space-y-4 max-w-lg mx-auto rounded-lg">
         <input
           required
           v-model="formData.name"
@@ -147,11 +138,7 @@ const submitForm = async () => {
           type="submit"
           :disabled="formLoading"
           class="text-white hover:text-bgPrimary border duration-150 border-primaryColor tracking-wide rounded-md text-sm px-4 py-3 w-full mt-6"
-          :class="
-            formLoading
-              ? 'bg-bgPrimary/50 cursor-not-allowed'
-              : 'bg-primaryColor active:scale-95 '
-          "
+          :class="formLoading ? 'bg-bgPrimary/50 cursor-not-allowed' : 'bg-primaryColor active:scale-95 '"
         >
           <p v-if="!formLoading">Send</p>
           <div v-else role="status">

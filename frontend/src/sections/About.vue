@@ -38,9 +38,7 @@ const downloadCV = async () => {
     console.log("Success: CV downloaded");
 
     // Create a URL object from the blob data
-    const fileURL = window.URL.createObjectURL(
-      new Blob([response.data], { type: "application/pdf" })
-    );
+    const fileURL = window.URL.createObjectURL(new Blob([response.data], { type: "application/pdf" }));
 
     // Open the PDF in a new tab
     window.open(fileURL, "_blank");
@@ -53,9 +51,7 @@ const downloadCV = async () => {
 </script>
 <template>
   <!-- Hero Section Start -->
-  <div
-    class="container flex w-full justify-center lg:flex-row flex-col items-center"
-  >
+  <div class="container flex w-full justify-center lg:flex-row flex-col items-center">
     <div class="lg:w-1/3 lg:order-2 relative">
       <!-- Existing image container -->
       <div
@@ -69,32 +65,24 @@ const downloadCV = async () => {
         />
       </div>
     </div>
-    <div
-      class="lg:flex-grow lg:w-1/2 flex flex-col lg:text-left text-center content-center"
-    >
-      <h1
-        class="title-font sm:text-6xl leading-6 text-3xl mb-4 font-bold text-white"
-      >
+    <div class="lg:flex-grow lg:w-1/2 flex flex-col lg:text-left text-center content-center">
+      <h1 class="title-font sm:text-6xl leading-6 text-3xl mb-4 font-bold text-white">
         Hi, I'm <span class="text-primaryColor">Jami</span>
       </h1>
-      <h3 class="title-font sm:text-3xl text-xl mb-4 font-bold text-white">
-        Fullstack Web Developer
-      </h3>
+      <h3 class="title-font sm:text-3xl text-xl mb-4 font-bold text-white">Fullstack Web Developer</h3>
       <p class="mb-8 leading-relaxed text-slate-200">
-        Passionate Full-Stack Developer driven by a love for creating engaging
-        user experiences and solving complex problems. I excel in tackling
-        technical challenges with enthusiasm and creativity.
+        An upcoming Full-Stack Developer with a strong drive to create engaging user experiences and applications that
+        users actually like to use. <br />
+        I love tackling technical challenges and finding new solutions to problems while learning and growing my skills.
       </p>
 
       <p class="mb-8 leading-relaxed text-slate-200">
-        My strong coding skills are matched by my eagerness to learn and grow.
-        I'm motivated by innovative projects that stretch my abilities and allow
-        me to contribute meaningfully to impactful solutions.
+        I do coding as a hobby and as a job and continuously seek to improve my skills in various programming languages
+        and frameworks. My expertise lies in both front-end and back-end development, allowing me to build complete web
+        applications from ground up.
       </p>
       <p class="mb-8 leading-relaxed text-slate-200">
-        Looking for opportunities to collaborate with talented teams where I can
-        both share my expertise and learn from others, ultimately improving my
-        skills while creating exceptional digital experiences.
+        Looking for an enthusiastic developer to join your team? Let's connect!
       </p>
 
       <div class="flex gap-4 flex-wrap w-full justify-center lg:justify-start">
@@ -131,11 +119,7 @@ const downloadCV = async () => {
           target="_blank"
           class="rounded-md flex gap-2 text-textPrimary px-4 py-2 button-effects"
         >
-          <img
-            src="/src/assets/github-mark-white.png"
-            alt="github logo"
-            class="h-6 w-6"
-          />
+          <img src="/src/assets/github-mark-white.png" alt="github logo" class="h-6 w-6" />
           Github
         </a>
       </div>
