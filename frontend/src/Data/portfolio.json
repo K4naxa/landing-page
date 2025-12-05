@@ -22,7 +22,7 @@
       "stack": ["React", "TailwindCSS", "Node.js", "Express", "mySQL"],
       "github": "https://github.com/K4naxa/Urheilupaivakirja",
       "documentation": "https://github.com/K4naxa/urheilupaivakirja-dokumentaatio",
-      "demo": "https://upk.pohjosenpaja.fi/"
+      "demo": ""
     },
 
     {
@@ -45,7 +45,7 @@
       "stack": ["Wordpress", "Elementor", "WooCommerce"],
       "github": "",
       "documentation": "https://github.com/K4naxa/mahdollisuuksienkirppis_documents",
-      "live": "https://www.mahdollisuuksienkirppis.fi/"
+      "demo": ""
     },
 
     {
@@ -70,7 +70,8 @@
       "stack": ["Wordpress", "Elementor", "WooCommerce", "Polylang"],
       "github": "",
       "documentation": "",
-      "live": "https://www.barrocos.net/"
+      "live": "https://www.barrocos.net/",
+      "demo": ""
     },
     {
       "id": "landing-page",
@@ -122,7 +123,7 @@
       "stack": ["Next.js", "React", "TailwindCSS", "NestJS", "Keycloak", "PostgreSQL", "Docker"],
       "github": "https://github.com/K4naxa/worksheet",
       "documentation": "",
-      "demo": "https://worksheet.pohjosenpaja.fi"
+      "demo": ""
     }
   ]
 }
